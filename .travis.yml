@@ -1,0 +1,23 @@
+language: ruby
+script: bundle exec middleman build
+
+env:
+  global:
+    - GIT_COMMITTER_NAME=284km
+    - GIT_COMMITTER_EMAIL=k.furuhashi10@gmail.com
+    - GIT_AUTHOR_NAME=284km
+    - GIT_AUTHOR_EMAIL=k.furuhashi10@gmail.com
+    - secure: "T6xUgwqbSO90iE9HUkC1QN2zspeq8Mh8nflsopQ2HfDPF7mN6KSUjnfR3lmyKcH8k7JbO2D+MWouxiHOeX6zBnhUY61fkQyeCXtAudR/ubDZyyu9qGk4oJaIXDtJ6b7C8+/f/Ok8PvJAlCYEHLIHPiOAvGHprMgOjLD+ZHrabZE="
+
+before_script:
+  - git clone --quiet https://github.com/284km/284km.github.io.git build
+  - pushd build
+  - git checkout -b gh-pages
+  - popd
+
+after_success:
+  - cd build
+  - git add -A
+  - git commit -m 'Update'
+  - '[ "$TRAVIS_BRANCH" == "master" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/284km/284km.github.io.git gh-pages 2> /dev/null'
+
