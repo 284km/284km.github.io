@@ -1,5 +1,5 @@
 language: ruby
-script: bundle exec middleman build
+rvm: 2.0.0
 
 env:
   global:
@@ -8,12 +8,13 @@ env:
     - GIT_AUTHOR_NAME=284km
     - GIT_AUTHOR_EMAIL=k.furuhashi10@gmail.com
     - secure: "T6xUgwqbSO90iE9HUkC1QN2zspeq8Mh8nflsopQ2HfDPF7mN6KSUjnfR3lmyKcH8k7JbO2D+MWouxiHOeX6zBnhUY61fkQyeCXtAudR/ubDZyyu9qGk4oJaIXDtJ6b7C8+/f/Ok8PvJAlCYEHLIHPiOAvGHprMgOjLD+ZHrabZE="
-
 before_script:
   - git clone --quiet https://github.com/284km/284km.github.io.git build
   - pushd build
   - git checkout -b gh-pages
   - popd
+
+script: bundle exec middleman build
 
 after_success:
   - cd build
