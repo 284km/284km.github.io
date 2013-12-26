@@ -18,6 +18,7 @@ script: bundle exec middleman build
 
 after_success:
   - cd build
+  - git init
   - git add -A
   - git commit -m 'Update from Travis CI'
 #  - '[ "$TRAVIS_BRANCH" == "master" ] && [ $GH_TOKEN ] && git push --quiet https://$GH_TOKEN@github.com/284km/284km.github.io.git gh-pages 2> /dev/null'
