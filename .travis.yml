@@ -18,7 +18,7 @@ script: bundle exec middleman build
 
 after_success:
   - cd build
-#  - echo -e "---\nbranches:\n  only:\n    - source" > .travis.yml
+  - echo -e "---\nbranches:\n  only:\n    - source" > .travis.yml
   - git init
   - git add -A
   - git commit -m 'Update from Travis CI'
