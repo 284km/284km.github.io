@@ -36,31 +36,24 @@
 
       <!-- Sidebar -->
       <aside class="large-3 columns">
-      <h5>Categories</h5>
-      <ul class="side-nav">
-        <li><a href="#">Diary</a></li>
-        <li><a href="#">Code</a></li>
-      </ul>
-
-      <h3>Recent Entries</h3>
+      <h4>Recent Entries</h4>
       <ul>
         <% blog.articles[0...10].each do |article| %>
-          <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %d, %Y') %></span></li>
+          <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %d') %></span></li>
         <% end %>
       </ul>
-      <h3>Categories</h3>
+      <h4>Categories</h4>
       <ul>
         <% blog.tags.each do |tag, articles| %>
           <li><%= link_to tag, tag_path(tag) %> (<%= articles.size %>)</a></li>
         <% end %>
       </ul>
-      <h3>By Year</h3>
+      <h4>By Year</h4>
       <ul>
         <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
           <li><%= link_to year, blog_year_path(year) %> (<%= articles.size %>)</a></li>
         <% end %>
       </ul>
-
 
       <div class="panel">
         <h5>Featured</h5>
