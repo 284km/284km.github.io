@@ -1,6 +1,7 @@
 ---
 title: add
 date: 2013-12-24 17:50 UTC
+tags: diary
 ---
 
 ## middleman ではまってた

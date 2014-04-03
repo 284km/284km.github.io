@@ -1,6 +1,7 @@
 ---
 title: Ready for Apple Developer
 date: 2014-04-03 16:24 JST
+tags: ios
 ---
 
 タイトルのとおり、 Apple Developer 登録について一連の流れをここに残す。
