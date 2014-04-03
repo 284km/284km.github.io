@@ -17,6 +17,6 @@ date: 2014-04-03 12:21 JST
 
 [f2c (Converters from Fahrenheit to centigrade)](http://284km.github.io/f2c/)
 
-なお発端は、IFTTT で twitter に天気を post する様にしたのだけれど、そこに予想 (最低|最高) 気温も表示されるがこの単位が °F であったことだった。
+なお発端は、IFTTT で twitter に天気を post する様にしたのだけれど、そこに予想最低,最高気温も表示されるがこの単位が °F であったことだった。
 
 
