@@ -28,4 +28,13 @@ date: 2014-04-03 16:24 JST
   - これで実機で起動することができる。xcode で登録した device を選択して実行 !!
   - はじめて動かした時には少しくらい感動するかもしれない。
 
+- その他メモ。
+
+```
+ここで重要な作業があります。App IDはXCodeで作成されたプロジェクトの「Bundle Identifier」と同じでなければなりません。
+openFrameworksのiOSプロジェクトの場合は、プロジェクトの中に「ofxiphone-info.plist」というファイルがあるので、これを選択します。「${PRODUCT_NAME:identifier}」と書かれているので、これにApp IDを先頭に追加します。「*」はつけません。
+例：jp.xsrv.r-dimension.${PRODUCT_NAME:identifier}
+
+これで、作成したプログラムが正しく実機に転送できます。
+```
 
