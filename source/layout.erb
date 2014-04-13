@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This is 284km's diary.">
     <title>FAITH at 284km<%= ' - ' + current_article.title unless current_article.nil? %></title>
+    <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
