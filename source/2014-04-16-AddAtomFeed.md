@@ -1,6 +1,6 @@
 ---
 title: Add Atom feed
-date: 2014-04-17 09:22
+date: 2014-04-16 21:22
 tags: diary, blog
 ---
 
