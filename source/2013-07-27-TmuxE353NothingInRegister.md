@@ -1,5 +1,5 @@
 ---
-title: tmux の vim で E353\: Nothing in register とか出る時
+title: tmux の vim で E353 Nothing in register とか出る時
 date: 2013-07-27 10:21
 tags: tmux
 ---
