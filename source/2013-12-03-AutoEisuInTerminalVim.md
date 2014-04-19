@@ -1,5 +1,5 @@
 ---
-title: [Esc, C-[, C-C 対応版] Terminal Vimで Insert モードを抜ける時に英数入力に切り替える方法
+title: '[Esc, C-[, C-C 対応版] Terminal Vimで Insert モードを抜ける時に英数入力に切り替える方法'
 date: 2013-12-03 20:11
 tags: vim
 ---
