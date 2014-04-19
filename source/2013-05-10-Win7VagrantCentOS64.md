@@ -1,7 +1,7 @@
 ---
 title: Windows7でVagrant - CentOS6.4を使う
 date: 2013-05-10 07:50
-tags: vagrant, win7
+tags: vagrant, windows
 ---
 
 必要に迫られて win7 な環境でもやったのでメモ。
