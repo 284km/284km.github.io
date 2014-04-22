@@ -8,6 +8,7 @@
     <title>Drafts<%= ' - ' + current_article.title unless current_article.nil? %></title>
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"></link>
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
   <body>
@@ -76,6 +77,9 @@
           <p>Kazuma Furuhashi @284km</p>
         </div>
         <div class="large-6 columns">
+          <section class="coderwall" data-coderwall-username="284km" data-coderwall-orientation="horizontal"></section>
+        </div>
+        <div class="large-6 columns">
           <ul class="inline-list right">
             <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
             <li><a href="#" class="button">Memo</a></li>
@@ -87,6 +91,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation.min.js"></script>
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js">
     <script>
       $(document).foundation();
       var doc = document.documentElement;
@@ -95,3 +100,4 @@
 
   </body>
 </html>
+"chrome-extension://oknpjjbmpnndlpmnhmekjpocelpnlfdi".
