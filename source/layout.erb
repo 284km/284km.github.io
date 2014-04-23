@@ -40,14 +40,15 @@
       <!-- Sidebar -->
       <aside class="large-3 columns">
 
-      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
-
       <h4>Recent Entries</h4>
       <ul>
         <% blog.articles[0...10].each do |article| %>
           <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %d') %></span></li>
         <% end %>
       </ul>
+
+      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
+
       <h4>Categories</h4>
       <ul>
         <% blog.tags.each do |tag, articles| %>
