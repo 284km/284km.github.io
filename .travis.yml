@@ -29,3 +29,5 @@ branches:
   only:
     - source
 
+notifications:
+  slack: 284km:tXkToM1uFf4bBUhZ5z1iAg6p
