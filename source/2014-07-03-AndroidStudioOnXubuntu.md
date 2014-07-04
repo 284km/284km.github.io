@@ -26,3 +26,14 @@ android studio の起動。うまくいった。
 
 ~/android-studio/bin/studio.sh
 
+
+### エミュレータがうまく動いていない。
+### 以下、まだ途中だけれどメモ。
+
+find / -name 'libGL.so.1'
+
+ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 ~/android-studio/sdk/tools/lib/libGL.so
+
+sudo apt-get install virtualbox
+
+
