@@ -1,0 +1,520 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is 284km's diary.">
+    <title>Drafts</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"></link>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+          <ul class="button-group">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+        <h1>Drafts <small>as my diary.</small></h1>
+        <hr>
+      </div>
+    </div>
+    <!-- End Nav -->
+
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+
+      <!-- Main Blog Content -->
+      <div id="main" class="large-9 columns" role="main">
+          <p>Page 6 of 11</p>
+
+  
+    <p><a class="button" href="/page/5/">Previous page</a></p>
+  
+
+  <article>
+  <h3><a href="/2014/04/25/Megane.html">Clear vision</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>実に 9年ぶりに JINS でメガネを新調した。
+以前使用していたメガネより少し度数があがったこと、以前のものの様にレンズが傷だらけではないこと。
+この二つの理由により視界良好である。実に清々しい気分になる。
+こんなに気分も良くなるのならば、もっと早くに買い換えるべきであったなあと思う。
+メガネを買い換えるとなると、少々お高い印象を持っていた。実際、以前使っていたメガネは結構高いものを買ったのだ。
+しかし今日買ったメガネは 5900 円程度だった。消費税 8% を加えても 6000 円と少々。
+しかも即日というか視力検査をしてその後 30 分程度待つだけで受け取ることが出来るため全然時間もかからない。</p>
+
+<p>この程度の時間とお金で良好な視界が手に入ったことに大変満足している。良い一日だ。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/25/Megane.html">Published at April 25, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/24/BoilerplateWithBackbone.html">Boilerplate with backbone.js</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>すばやく作ることを常に心がけている。どうにかして早く作れるようになりたい。
+そんな想いをどうにかしようと、boilerplate を考えている。
+まだまだ改善が必要だけれど、boilerplate-backbone を一旦コミットした。
+引き続き真の高速開発を目指す。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/24/BoilerplateWithBackbone.html">Published at April 24, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/23/Coderwall.html">coderwall のバッジを表示する</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <pre><code>&lt;link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"&gt;&lt;/link&gt;
+&lt;script src="http://coderwall.com/javascripts/jquery.coderwall.js"&gt;
+
+&lt;section class="coderwall" data-coderwall-username="username" data-coderwall-orientation="vertical or horizontal"&gt;&lt;/section&gt;
+</code></pre>
+
+<p>あと、jQuery が必要です。</p>
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/23/Coderwall.html">Published at April 23, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/22/KillTurbolinks.html">Rails4 Turbolinks を切る</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>人類には早過ぎると思うし、とても僕が turbolinks を一番うまく扱える気はしないし、ましてや俺が turbolinks だなんて言えやしないのでタイトルの通り turbolinks は切る方向で。暫くは。</p>
+
+<h3 id="section">というわけで手順</h3>
+
+<ul>
+  <li>
+    <p>rails new で bundle install はスキップしておく</p>
+
+    <p>rails new hoge –skip-bundle</p>
+  </li>
+  <li>
+    <p>Gemfile から <code>gem 'turbolinks'</code> をはずす</p>
+  </li>
+  <li>
+    <p>アセットパイプラインのマニフェストから turbolinks を削除</p>
+
+    <p>//= require turbolinks</p>
+  </li>
+  <li>
+    <p>application.html.erb から <code>"data-turbolinks-track" =&gt; true</code> を削除</p>
+  </li>
+</ul>
+
+<p>そして改めて bundle install する。</p>
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/22/KillTurbolinks.html">Published at April 22, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/21/MRuby.html">MRuby 20140421</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <ul>
+  <li>mruby のビルド</li>
+</ul>
+
+<p>ruby ./minirake</p>
+
+<p>これで下記のファイルが生成されます。</p>
+
+<p>bin/mruby - mrubyコマンド
+bin/mirb - mruby interactive shell
+bin/mrbc - mruby compiler</p>
+
+<ul>
+  <li>mruby を試す (mruby の irb)</li>
+</ul>
+
+<p>./bin/mirb</p>
+
+<h3 id="section">今日の変化</h3>
+
+<p>Array.rb に reject! が入った。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/21/MRuby.html">Published at April 21, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/20/IndexedDb.html">IndexedDB が利用可能か判定する方法</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>これでいいのか?</p>
+
+<pre><code>if (window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB) {
+  console.log("you can use");
+} else {
+  console.log("you can't use");
+}
+</code></pre>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/20/IndexedDb.html">Published at April 20, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/20/NoPgConfig.html">gem install error about "No pg_config"</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>こんな具合に gem install pg できなかった。</p>
+
+<blockquote>
+  <p>checking for pg_config… no
+No pg_config… trying anyway. If building fails, please try again with
+ –with-pg-config=/path/to/pg_config
+checking for libpq-fe.h… no
+Can't find the 'libpq-fe.h header
+<em>** extconf.rb failed **</em>
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.</p>
+</blockquote>
+
+<h3 id="section">対処法</h3>
+
+<ul>
+  <li>
+    <p>Debian</p>
+
+    <p>sudo aptitude install libpq-dev</p>
+  </li>
+  <li>
+    <p>Redhat</p>
+
+    <p>sudo yum -y install postgresql-devel</p>
+  </li>
+  <li>
+    <p>Mac</p>
+
+    <p>brew install postgresql</p>
+  </li>
+</ul>
+
+<h3 id="pgconfig-">pg_config のパスの指定をしたい場合</h3>
+
+<pre><code>gem install pg --with-pg-config=/usr/local/bin/pg_config
+</code></pre>
+
+<ul>
+  <li>
+    <p>bundle install の場合</p>
+
+    <p>bundle config build.pg –with-pg-config=/usr/local/bin/pg_config
+  bundle install</p>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/20/NoPgConfig.html">Published at April 20, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/16/AddAtomFeed.html">Add Atom feed</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>ブログ? と言っていいのかわからないけれど、Atom feed をつけました。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/16/AddAtomFeed.html">Published at April 16, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/15/ChromeExtensionColoredWipPulls.html">chrome-extension-colored-wip-pulls</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p><a href="https://chrome.google.com/webstore/detail/paint-with-the-wip-pull-r/hbbkmaeblpikjngmojbcljhnocbcahli">chrome-extension-colored-wip-pulls</a> という Chrome Extension をリリースした。</p>
+
+<p>なんてことない、ただ [WIP] pull request を github で見分けやすくするためだけに作った、それだけのためのもの。</p>
+
+<p>ウェブでも、iOS でも、 Android でも、Chrome Extension でも、他の何かであっても、手を動かしてさくっと動くものを作ってみるということが分かり易くてよい。そしてこういうサイクルで回してないと作りたいものとか必要なもの改善点などの発想が乏しいままになる。そんなことを考えている。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/15/ChromeExtensionColoredWipPulls.html">Published at April 15, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/14/AyuStyle.html">Ayu style</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>本当にどうでもいいが、記事のタイトルは英語で内容はだいたい日本語で書いているのでこれはいわゆる浜崎あゆみスタイルではないか。などと思ったり。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/14/AyuStyle.html">Published at April 14, 2014.</a></h6>
+  </article>
+  <hr>
+
+  
+    <p><a class="button" href="/page/7/">Next page</a></p>
+  
+
+      </div>
+      <!-- End Main Content -->
+
+      <!-- Sidebar -->
+      <aside class="large-3 columns">
+
+      <h4>Recent Entries</h4>
+      <ul>
+        
+          <li><a href="/2014/12/18/PtOnlineSchemaChange.html">pt-online-schema-change</a> <span>Dec 18</span></li>
+        
+          <li><a href="/2014/12/05/UrlEncodeWithPLUS.html">URL エンコードの + と %20 などの挙動でハマったこと</a> <span>Dec 05</span></li>
+        
+          <li><a href="/2014/11/25/Emmet.html">Emmet を導入してみた</a> <span>Nov 25</span></li>
+        
+          <li><a href="/2014/11/07/RackAcceptDefault.html">rack-accept-default から知ったこと</a> <span>Nov 07</span></li>
+        
+          <li><a href="/2014/10/27/RSpecMinimal.html">rspec の最小構成</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/27/MakeBookmarkletFaster.html">Make bookmarklet faster</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Rails4 の assets precompile に関する注意点と現時点での対応方法</a> <span>Oct 22</span></li>
+        
+          <li><a href="/2014/10/02/StopTail.html">tail -f を一時的に止める</a> <span>Oct 02</span></li>
+        
+          <li><a href="/2014/09/30/Book.html">技術書の選び方を相談されて考えたこと</a> <span>Sep 30</span></li>
+        
+          <li><a href="/2014/09/29/WhereIsMyCnf.html">where is my.cnf</a> <span>Sep 29</span></li>
+        
+      </ul>
+
+      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
+
+      <h4>Categories</h4>
+      <ul>
+        
+          <li><a href="/tags/tool.html">tool</a> (3)</a></li>
+        
+          <li><a href="/tags/iterm.html">iterm</a> (1)</a></li>
+        
+          <li><a href="/tags/diary.html">diary</a> (20)</a></li>
+        
+          <li><a href="/tags/github.html">github</a> (1)</a></li>
+        
+          <li><a href="/tags/php.html">php</a> (1)</a></li>
+        
+          <li><a href="/tags/blog.html">blog</a> (3)</a></li>
+        
+          <li><a href="/tags/windows.html">windows</a> (5)</a></li>
+        
+          <li><a href="/tags/android.html">android</a> (4)</a></li>
+        
+          <li><a href="/tags/javascript.html">javascript</a> (6)</a></li>
+        
+          <li><a href="/tags/css.html">css</a> (3)</a></li>
+        
+          <li><a href="/tags/bestpractice.html">bestpractice</a> (3)</a></li>
+        
+          <li><a href="/tags/eclipse.html">eclipse</a> (1)</a></li>
+        
+          <li><a href="/tags/chrome.html">chrome</a> (3)</a></li>
+        
+          <li><a href="/tags/indexeddb.html">indexeddb</a> (1)</a></li>
+        
+          <li><a href="/tags/example.html">example</a> (1)</a></li>
+        
+          <li><a href="/tags/ruby.html">ruby</a> (6)</a></li>
+        
+          <li><a href="/tags/postgresql.html">postgresql</a> (1)</a></li>
+        
+          <li><a href="/tags/vps.html">vps</a> (2)</a></li>
+        
+          <li><a href="/tags/nginx.html">nginx</a> (1)</a></li>
+        
+          <li><a href="/tags/vim.html">vim</a> (2)</a></li>
+        
+          <li><a href="/tags/backbone.html">backbone</a> (1)</a></li>
+        
+          <li><a href="/tags/rails.html">rails</a> (6)</a></li>
+        
+          <li><a href="/tags/rails4.html">rails4</a> (1)</a></li>
+        
+          <li><a href="/tags/ubuntu.html">ubuntu</a> (6)</a></li>
+        
+          <li><a href="/tags/git.html">git</a> (3)</a></li>
+        
+          <li><a href="/tags/middleman.html">middleman</a> (1)</a></li>
+        
+          <li><a href="/tags/mysql.html">mysql</a> (4)</a></li>
+        
+          <li><a href="/tags/ibus.html">ibus</a> (1)</a></li>
+        
+          <li><a href="/tags/c.html">c</a> (2)</a></li>
+        
+          <li><a href="/tags/java.html">java</a> (4)</a></li>
+        
+          <li><a href="/tags/json.html">json</a> (1)</a></li>
+        
+          <li><a href="/tags/intellij.html">intellij</a> (1)</a></li>
+        
+          <li><a href="/tags/vagrant.html">vagrant</a> (4)</a></li>
+        
+          <li><a href="/tags/ie.html">ie</a> (2)</a></li>
+        
+          <li><a href="/tags/jenkins.html">jenkins</a> (1)</a></li>
+        
+          <li><a href="/tags/english.html">english</a> (2)</a></li>
+        
+          <li><a href="/tags/virtualbox.html">virtualbox</a> (1)</a></li>
+        
+          <li><a href="/tags/turbolinks.html">turbolinks</a> (1)</a></li>
+        
+          <li><a href="/tags/mruby.html">mruby</a> (1)</a></li>
+        
+          <li><a href="/tags/linux.html">linux</a> (1)</a></li>
+        
+          <li><a href="/tags/js.html">js</a> (1)</a></li>
+        
+          <li><a href="/tags/engineer.html">engineer</a> (1)</a></li>
+        
+          <li><a href="/tags/twitter.html">twitter</a> (2)</a></li>
+        
+          <li><a href="/tags/jquery.html">jquery</a> (1)</a></li>
+        
+          <li><a href="/tags/golang.html">golang</a> (1)</a></li>
+        
+          <li><a href="/tags/environment.html">environment</a> (1)</a></li>
+        
+          <li><a href="/tags/rspec.html">rspec</a> (1)</a></li>
+        
+          <li><a href="/tags/perl.html">perl</a> (2)</a></li>
+        
+          <li><a href="/tags/web.html">web</a> (1)</a></li>
+        
+          <li><a href="/tags/tmux.html">tmux</a> (1)</a></li>
+        
+          <li><a href="/tags/toeic.html">toeic</a> (1)</a></li>
+        
+          <li><a href="/tags/ios.html">ios</a> (5)</a></li>
+        
+          <li><a href="/tags/xcode.html">xcode</a> (1)</a></li>
+        
+          <li><a href="/tags/html.html">html</a> (1)</a></li>
+        
+          <li><a href="/tags/pt-pnline-schema-change.html">pt-pnline-schema-change</a> (1)</a></li>
+        
+          <li><a href="/tags/sh.html">sh</a> (1)</a></li>
+        
+          <li><a href="/tags/product.html">product</a> (1)</a></li>
+        
+          <li><a href="/tags/compass.html">compass</a> (1)</a></li>
+        
+          <li><a href="/tags/redis.html">redis</a> (1)</a></li>
+        
+      </ul>
+      <h4>By Year</h4>
+      <ul>
+        
+          <li><a href="/2014.html">2014</a> (73)</a></li>
+        
+          <li><a href="/2013.html">2013</a> (32)</a></li>
+        
+          <li><a href="/2012.html">2012</a> (2)</a></li>
+        
+      </ul>
+
+      <div class="panel">
+        <h5>Featured</h5>
+        <p> - The status of my iOS app is "Waiting For Review" now.</p>
+      </div>
+
+      <section class="coderwall" data-coderwall-username="284km" data-coderwall-orientation="horizontal"></section>
+
+      </aside>
+      <!-- End Sidebar -->
+
+    </div>
+    <!-- End Main Content and Sidebar -->
+
+    <!-- Footer -->
+    <footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>Kazuma Furuhashi @284km</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation.min.js"></script>
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js">
+    <script>
+      $(document).foundation();
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </body>
+</html>

@@ -1,0 +1,584 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is 284km's diary.">
+    <title>Drafts</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"></link>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+          <ul class="button-group">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+        <h1>Drafts <small>as my diary.</small></h1>
+        <hr>
+      </div>
+    </div>
+    <!-- End Nav -->
+
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+
+      <!-- Main Blog Content -->
+      <div id="main" class="large-9 columns" role="main">
+          <p>Page 7 of 11</p>
+
+  
+    <p><a class="button" href="/page/6/">Previous page</a></p>
+  
+
+  <article>
+  <h3><a href="/2014/04/14/ChromeExtensionBrowserAction.html">Chrome extension browser action</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>browser_action な Chrome Extension についてもサンプルを作った。</p>
+
+<p>こちらにある。</p>
+
+<p><a href="https://github.com/284km/chrome-extension-browser-action">284km/chrome-extension-browser-action</a></p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/14/ChromeExtensionBrowserAction.html">Published at April 14, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/14/ChromeExtension.html">Chrome Extension</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <h2 id="chrome-extension-">Chrome Extension の種類について</h2>
+
+<p>manifest.json に書くことになるが、三種類ある。以下はそれぞれの簡単な説明。</p>
+
+<h3 id="app">app</h3>
+
+<p><code>chrome://apps/</code> に並ぶタイプのもの。</p>
+
+<h3 id="browseraction">browser_action</h3>
+
+<p>アドレスバーの右側にアイコン表示するタイプのもの。</p>
+
+<h3 id="pageaction">page_action</h3>
+
+<p>アイコン表示したくないような場合にはこちらを使う。</p>
+
+<ul>
+  <li>おまけ</li>
+</ul>
+
+<p>とても小さなものならすごく簡単に作れる。Chrome Extension を作ったことが無い人でも 10 分程度でどんな感じか分かると思う。
+サンプルとして app のタイプのものが以下にある。</p>
+
+<p>どんな感じかさくっと体験してみたい人は、これを clone して、chrome の設定から Extensions の Developer mode のチェックを ON して、clone した extension を読み込ませてみるとよいと思う。
+すると <code>chrome://apps/</code> に並ぶので、クリックするとサンプルページが表示されるはずだ。</p>
+
+<p>https://github.com/284km/chrome-extension-minimal</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/14/ChromeExtension.html">Published at April 14, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/14/MiddlemanBuildError.html">Middleman Build Error</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>今日記事を追加しようとしたら、Travis-CI から通知がきて middleman のビルドエラーが起きていた。
+はて、いつもどおりに追加したはずだが。</p>
+
+<p>middleman-blog を追ってみたところ、どうやら日付の指定 (ファイル名につけるやつ) が悪いらしい。コードを見た限りでは、現在日より未来だからっぽい。</p>
+
+<p>それにしても日付は今までどおり当日を入力しており未来日ということもなかろう。 config.rb を眺めてみるとタイムゾーンを指定していないことに気づく。デフォルトで UTC とかになるのだろうか。そうだとすると、未来日だという主張も頷ける。というわけで <code>Time.zone = "Tokyo"</code> を追加して push したところ今度は別のエラーだ。日付の問題はやはりタイムゾーンの問題だったということのようだ。</p>
+
+<p>残りのエラーは、いくつかのファイルが対象となった。すべて昔作った動作確認テスト用の article だ。拡張子が <code>.html.markdown</code> だったりがいけなかったのか、よく覚えていないが不要なファイルであったため git rm したところビルドが通った。</p>
+
+<p>全部直ったが、意識しておくこととしてはたまに挙動がかわることがあるということ。middleman がわの。だから早くブログシステム移行したい。とかずっと言い続けているけれど結局 middleman の投資対効果はなかなかのものなのでそこに依存している。いや悪くはないんですが。middleman。コードも見れば分かるものだったし暫くは問題ないのではないか。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/14/MiddlemanBuildError.html">Published at April 14, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/14/BadFavicon.html">Bad Favicon</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>Favicon をつけたが出来が悪すぎて今度作りなおそうと思い悲しい。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/14/BadFavicon.html">Published at April 14, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/08/FightWithValidationOfiOSApp.html">Fight with validation of my iOS App</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>昨日 4/7 の話になるが、iOS アプリの申請に関して大いにはまった箇所がある。</p>
+
+<p>やり方全般は世に詳しい記事が溢れているため大体誰がやってもどうにかなるもので、もはやイージーモードだなあとかつくづく感じる。</p>
+
+<p>さて、昨日はまったのは細かい部分で、振り返るとやはりしょうもない問題に躓いたものだなどと思う。</p>
+
+<p>2 つの問題に遭遇した。</p>
+
+<ol>
+  <li>validate できない問題</li>
+  <li>waiting for upload から進まない問題</li>
+</ol>
+
+<ul>
+  <li>validate できない問題について</li>
+</ul>
+
+<p>まずプロジェクト作成時に、プロジェクト名 (Bundle Identifier の最後の "." 以降) に大文字を含む名称をつけていた。対して Developer ページで作る AppID には全て小文字で入力していた。</p>
+
+<p>おそらくこれが原因だったのだと思う。大文字にして AppID 及び Provisioning Profiles を作りなおしたところうまくいった。</p>
+
+<p>良くわからないのは、Provisioning Profile を作り直す前に、plist を修正 (小文字に)して、AppID に併せたけれど駄目だったこと。plist を修正するだけでは駄目ということか?</p>
+
+<p>とりあえず解決したからよかった。次にやるときは、AppID の大文字小文字を併せることを忘れてはいけない。</p>
+
+<ul>
+  <li>waiting for upload から進まない問題</li>
+</ul>
+
+<p>とても簡単なことで、validate ボタンを押してうまくいった後、destribute ボタンを押していなかったというだけであった。
+Xcode の UI も変わるし、使い方や各種フローも変わることもある。
+分かってしまえば何ということもないのだが、分からないと終わりが見えず時間をただただ失っていくため辛いものがある。
+まあ、解決してよかった。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/08/FightWithValidationOfiOSApp.html">Published at April 08, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/07/HowToChangeTheProjectNameByXcode.html">How to change the project name by Xcode</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>適当な "SampleApp" みたいな名前のプロジェクトを作りサンプルを書いて暫く突き進んだら、これでいいじゃん。という流れになって、いやしかしプロジェクト名だけは変えたいなあー。ということがありました。</p>
+
+<p>参照とか色々ありそうだし、こんなことで時間使いたくないなあと思っていたのですがとても簡単でした。</p>
+
+<p>プロジェクトを選択する。
+Xcode の右上にある "Identity and Type" を新プロジェクト名に書き換える。
+すると diff を表示してくれる。Rename ボタンで変更完了する。
+最初のプロジェクト作成時に作られたフォルダ名や、 .h .m ファイルのヘッダのコメントなどは元のプロジェクト名のままなので (このままでも動作には問題ないけれど) 適宜手動で変更しました。</p>
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/07/HowToChangeTheProjectNameByXcode.html">Published at April 07, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/05/jisui.html">jisui</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>部屋を物理的にどうにかしようと、今日も自炊している。苦行のようだ。</p>
+
+<p>そのほか、UIView の背景とうめいにするだとか、</p>
+
+<pre><code>_currentStampView = [[UITextView alloc] initWithFrame:CGRectMake(point.x - 70.0, point.y, 200, 70)];
+// opaque属性にNOを設定する事で、背景透過を許可する。
+// ここの設定を忘れると、背景色をいくら頑張っても透明になりません。
+_currentStampView.opaque = NO;
+// backgroundColorにalpha=0.0fの背景色を設定することで背景色が透明になります。
+_currentStampView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.0f];
+</code></pre>
+
+<p>あれー touch の制御いろいろしたいけどイベントの順序とかどうなってるんだー?</p>
+
+<pre><code>- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    hoge;
+}
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    fuga
+}
+</code></pre>
+
+<p>とかしょぼいことやっていた。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/05/jisui.html">Published at April 05, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/04/dream.html">today's dream</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>クレジットカードの明細に 330,000 Yen とか書いてある。</p>
+
+<p>なんだこれ? と思って調べてみたけど良くわからない。なにこれ?</p>
+
+<p>明細には c の plugin みたいなことが書いてある。</p>
+
+<p>ますます意味が分からない。なんだろうと思いつつも一旦布団へ戻った。</p>
+
+<p>いやでもきになるななんだあれ。何か罠踏んだんだろうか。最悪 33 万か。330 万だったら終わってたけど 33 万だったらまあ最悪なんとかなるな。でも嫌だな。布団から出てもう一度調べてみるか。ん? これ、夢じゃないか? これは夢だな。調べる必要などない。安心して寝ていいぞ。</p>
+
+<p>という夢を見た。嫌な感じだ。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/04/dream.html">Published at April 04, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/03/Unco.html">I think about grand unco (undo commands)</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <ul>
+  <li>
+    <p>CMake とは
+Unix における Make に相当するもの。
+ビルドプロセスは CMakeLists.txt により制御される。</p>
+  </li>
+  <li>
+    <p>instalation (大体はこうだ)
+&gt; cmake .
+&gt; make
+&gt; make install</p>
+  </li>
+  <li>
+    <p>よくわからないときなんかがあったらまあ、こうするとよいだろう。</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>%cmake –help-variable-list
+%cmake –help-variable CMAKE_ROOT
+cmake version 2.8.11
+  CMAKE_ROOT
+       Install directory for running cmake.</p>
+
+  <pre><code>   This is the install root for the running CMake and the Modules
+   directory can be found here.  This is commonly used in this format:
+   ${CMAKE_ROOT}/Modules
+</code></pre>
+
+  <p>%</p>
+</blockquote>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/03/Unco.html">Published at April 03, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/04/03/ReadyForAppleDeveloper.html">Ready for Apple Developer</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>タイトルのとおり、 Apple Developer 登録について一連の流れをここに残す。</p>
+
+<ol>
+  <li>apple id をとる</li>
+  <li>developer 登録する ( 8400 円ほど)
+    <ul>
+      <li>お金払ってから少し (1 day ほど) 待つことになる。メールが来るまで待つ。</li>
+    </ul>
+  </li>
+  <li>key を作って登録する。app id を登録する。
+    <ul>
+      <li><a href="http://r-dimension.xsrv.jp/classes_j/ios_test/">こちら</a>が非常に分かり易かった。</li>
+    </ul>
+  </li>
+  <li>device 登録する。
+    <ul>
+      <li>lightning ケーブルで使用するデバイスを繋いで、xcode の Organizer で Use For Development ボタン。</li>
+    </ul>
+  </li>
+  <li>provisioning profiles
+    <ul>
+      <li>xcode の Organizer から 使用 device の Provisioning Profiles に Add する。</li>
+    </ul>
+  </li>
+  <li>実機で実行
+    <ul>
+      <li>これで実機で起動することができる。xcode で登録した device を選択して実行 !!</li>
+      <li>はじめて動かした時には少しくらい感動するかもしれない。</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>その他メモ。</li>
+</ul>
+
+<blockquote>
+  <p>ここで重要な作業があります。App IDはXCodeで作成されたプロジェクトの「Bundle Identifier」と同じでなければなりません。
+openFrameworksのiOSプロジェクトの場合は、プロジェクトの中に「ofxiphone-info.plist」というファイルがあるので、これを選択します。「${PRODUCT_NAME:identifier}」と書かれているので、これにApp IDを先頭に追加します。「*」はつけません。
+例：jp.xsrv.r-dimension.${PRODUCT_NAME:identifier}</p>
+</blockquote>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/04/03/ReadyForAppleDeveloper.html">Published at April 03, 2014.</a></h6>
+  </article>
+  <hr>
+
+  
+    <p><a class="button" href="/page/8/">Next page</a></p>
+  
+
+      </div>
+      <!-- End Main Content -->
+
+      <!-- Sidebar -->
+      <aside class="large-3 columns">
+
+      <h4>Recent Entries</h4>
+      <ul>
+        
+          <li><a href="/2014/12/18/PtOnlineSchemaChange.html">pt-online-schema-change</a> <span>Dec 18</span></li>
+        
+          <li><a href="/2014/12/05/UrlEncodeWithPLUS.html">URL エンコードの + と %20 などの挙動でハマったこと</a> <span>Dec 05</span></li>
+        
+          <li><a href="/2014/11/25/Emmet.html">Emmet を導入してみた</a> <span>Nov 25</span></li>
+        
+          <li><a href="/2014/11/07/RackAcceptDefault.html">rack-accept-default から知ったこと</a> <span>Nov 07</span></li>
+        
+          <li><a href="/2014/10/27/RSpecMinimal.html">rspec の最小構成</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/27/MakeBookmarkletFaster.html">Make bookmarklet faster</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Rails4 の assets precompile に関する注意点と現時点での対応方法</a> <span>Oct 22</span></li>
+        
+          <li><a href="/2014/10/02/StopTail.html">tail -f を一時的に止める</a> <span>Oct 02</span></li>
+        
+          <li><a href="/2014/09/30/Book.html">技術書の選び方を相談されて考えたこと</a> <span>Sep 30</span></li>
+        
+          <li><a href="/2014/09/29/WhereIsMyCnf.html">where is my.cnf</a> <span>Sep 29</span></li>
+        
+      </ul>
+
+      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
+
+      <h4>Categories</h4>
+      <ul>
+        
+          <li><a href="/tags/tool.html">tool</a> (3)</a></li>
+        
+          <li><a href="/tags/iterm.html">iterm</a> (1)</a></li>
+        
+          <li><a href="/tags/diary.html">diary</a> (20)</a></li>
+        
+          <li><a href="/tags/github.html">github</a> (1)</a></li>
+        
+          <li><a href="/tags/php.html">php</a> (1)</a></li>
+        
+          <li><a href="/tags/blog.html">blog</a> (3)</a></li>
+        
+          <li><a href="/tags/windows.html">windows</a> (5)</a></li>
+        
+          <li><a href="/tags/android.html">android</a> (4)</a></li>
+        
+          <li><a href="/tags/javascript.html">javascript</a> (6)</a></li>
+        
+          <li><a href="/tags/css.html">css</a> (3)</a></li>
+        
+          <li><a href="/tags/bestpractice.html">bestpractice</a> (3)</a></li>
+        
+          <li><a href="/tags/eclipse.html">eclipse</a> (1)</a></li>
+        
+          <li><a href="/tags/chrome.html">chrome</a> (3)</a></li>
+        
+          <li><a href="/tags/indexeddb.html">indexeddb</a> (1)</a></li>
+        
+          <li><a href="/tags/example.html">example</a> (1)</a></li>
+        
+          <li><a href="/tags/ruby.html">ruby</a> (6)</a></li>
+        
+          <li><a href="/tags/postgresql.html">postgresql</a> (1)</a></li>
+        
+          <li><a href="/tags/vps.html">vps</a> (2)</a></li>
+        
+          <li><a href="/tags/nginx.html">nginx</a> (1)</a></li>
+        
+          <li><a href="/tags/vim.html">vim</a> (2)</a></li>
+        
+          <li><a href="/tags/backbone.html">backbone</a> (1)</a></li>
+        
+          <li><a href="/tags/rails.html">rails</a> (6)</a></li>
+        
+          <li><a href="/tags/rails4.html">rails4</a> (1)</a></li>
+        
+          <li><a href="/tags/ubuntu.html">ubuntu</a> (6)</a></li>
+        
+          <li><a href="/tags/git.html">git</a> (3)</a></li>
+        
+          <li><a href="/tags/middleman.html">middleman</a> (1)</a></li>
+        
+          <li><a href="/tags/mysql.html">mysql</a> (4)</a></li>
+        
+          <li><a href="/tags/ibus.html">ibus</a> (1)</a></li>
+        
+          <li><a href="/tags/c.html">c</a> (2)</a></li>
+        
+          <li><a href="/tags/java.html">java</a> (4)</a></li>
+        
+          <li><a href="/tags/json.html">json</a> (1)</a></li>
+        
+          <li><a href="/tags/intellij.html">intellij</a> (1)</a></li>
+        
+          <li><a href="/tags/vagrant.html">vagrant</a> (4)</a></li>
+        
+          <li><a href="/tags/ie.html">ie</a> (2)</a></li>
+        
+          <li><a href="/tags/jenkins.html">jenkins</a> (1)</a></li>
+        
+          <li><a href="/tags/english.html">english</a> (2)</a></li>
+        
+          <li><a href="/tags/virtualbox.html">virtualbox</a> (1)</a></li>
+        
+          <li><a href="/tags/turbolinks.html">turbolinks</a> (1)</a></li>
+        
+          <li><a href="/tags/mruby.html">mruby</a> (1)</a></li>
+        
+          <li><a href="/tags/linux.html">linux</a> (1)</a></li>
+        
+          <li><a href="/tags/js.html">js</a> (1)</a></li>
+        
+          <li><a href="/tags/engineer.html">engineer</a> (1)</a></li>
+        
+          <li><a href="/tags/twitter.html">twitter</a> (2)</a></li>
+        
+          <li><a href="/tags/jquery.html">jquery</a> (1)</a></li>
+        
+          <li><a href="/tags/golang.html">golang</a> (1)</a></li>
+        
+          <li><a href="/tags/environment.html">environment</a> (1)</a></li>
+        
+          <li><a href="/tags/rspec.html">rspec</a> (1)</a></li>
+        
+          <li><a href="/tags/perl.html">perl</a> (2)</a></li>
+        
+          <li><a href="/tags/web.html">web</a> (1)</a></li>
+        
+          <li><a href="/tags/tmux.html">tmux</a> (1)</a></li>
+        
+          <li><a href="/tags/toeic.html">toeic</a> (1)</a></li>
+        
+          <li><a href="/tags/ios.html">ios</a> (5)</a></li>
+        
+          <li><a href="/tags/xcode.html">xcode</a> (1)</a></li>
+        
+          <li><a href="/tags/html.html">html</a> (1)</a></li>
+        
+          <li><a href="/tags/pt-pnline-schema-change.html">pt-pnline-schema-change</a> (1)</a></li>
+        
+          <li><a href="/tags/sh.html">sh</a> (1)</a></li>
+        
+          <li><a href="/tags/product.html">product</a> (1)</a></li>
+        
+          <li><a href="/tags/compass.html">compass</a> (1)</a></li>
+        
+          <li><a href="/tags/redis.html">redis</a> (1)</a></li>
+        
+      </ul>
+      <h4>By Year</h4>
+      <ul>
+        
+          <li><a href="/2014.html">2014</a> (73)</a></li>
+        
+          <li><a href="/2013.html">2013</a> (32)</a></li>
+        
+          <li><a href="/2012.html">2012</a> (2)</a></li>
+        
+      </ul>
+
+      <div class="panel">
+        <h5>Featured</h5>
+        <p> - The status of my iOS app is "Waiting For Review" now.</p>
+      </div>
+
+      <section class="coderwall" data-coderwall-username="284km" data-coderwall-orientation="horizontal"></section>
+
+      </aside>
+      <!-- End Sidebar -->
+
+    </div>
+    <!-- End Main Content and Sidebar -->
+
+    <!-- Footer -->
+    <footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>Kazuma Furuhashi @284km</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation.min.js"></script>
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js">
+    <script>
+      $(document).foundation();
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </body>
+</html>

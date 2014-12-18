@@ -1,0 +1,569 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is 284km's diary.">
+    <title>Drafts</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"></link>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+          <ul class="button-group">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+        <h1>Drafts <small>as my diary.</small></h1>
+        <hr>
+      </div>
+    </div>
+    <!-- End Nav -->
+
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+
+      <!-- Main Blog Content -->
+      <div id="main" class="large-9 columns" role="main">
+          <p>Page 1 of 11</p>
+
+  
+
+  <article>
+  <h3><a href="/2014/12/18/PtOnlineSchemaChange.html">pt-online-schema-change</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>mysql 5.5 以下でも、online でスキーマ変更とかを可能とするあれだ。</p>
+
+<p>http://www.percona.com/downloads/percona-toolkit/2.2.12/tarball/percona-toolkit-2.2.12.tar.gz</p>
+
+<p>tar ball を持ってきて解凍して、中にある pt-online-schema-change だけ持ってきて使った。</p>
+
+<p>例えばこんな風に使う。</p>
+
+<ul>
+  <li>
+    <p>dry-run</p>
+
+    <p>./pt-online-schema-change h=localhost,u=username,D=databasename,t=tablename –alter "add index index_name(columnname)" –set-vars innodb_lock_wait_timeout=50 –dry-run</p>
+  </li>
+  <li>
+    <p>execute</p>
+
+    <p>./pt-online-schema-change h=localhost,u=username,D=databasename,t=tablename –alter "add index index_name(columnname)" –set-vars innodb_lock_wait_timeout=50 –execute</p>
+  </li>
+  <li>
+    <p>replication している場合には –nocheck-replication-filters などつける。</p>
+
+    <p>./pt-online-schema-change h=localhost,u=username,D=databasename,t=tablename –alter "add index index_name(columnname)" –set-vars innodb_lock_wait_timeout=50 –nocheck-replication-filters –execute</p>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/12/18/PtOnlineSchemaChange.html">Published at December 18, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/12/05/UrlEncodeWithPLUS.html">URL エンコードの + と %20 などの挙動でハマったこと</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>api 叩いて、そのクエリパラメータとDBの値を突き合わせてどうのこうの、ということをしていて、
+あれー、一致するはずがなんかおかしいぞ。ということになっていた。</p>
+
+<p>最近譲り受けてメンテすることになったコードでわからんので、コードを追っていく。</p>
+
+<p>どうやらパラメータに "+" が混ざっていたことで起きていた。
+サーバ側で文字列を突き合わせているが、"+" が半角スペース扱いされてしまっている。</p>
+
+<p>なるほど url encode のよくあるアレだ。
+とりあえず今すぐに、すぐさま動かすことが命題であったので、String.gsub(" ", "+") で難を逃れた。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/12/05/UrlEncodeWithPLUS.html">Published at December 05, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/11/25/Emmet.html">Emmet を導入してみた</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>Emmet を導入してみた。vim に。
+大体今までは slim を好んで使ってきたけれど、
+rails と分離してフロントエンドを考える場合に悩むことが多かった。テンプレートエンジンで。</p>
+
+<p>もともと haml だ slim だと使い始めたのは、素の html を書くのが面倒だったからだ。
+素の html が簡単に書けるのなら、問題ないはずだ。ちょっと使ってみた感じでは問題無さそう。</p>
+
+<p>rails と分離するときはもう emmet で素の html を書けばいいかなと思っている。</p>
+
+<p>slim の方が読みやすかったりするのかな? とか疑問はあるので
+暫く使って様子をみたい。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/11/25/Emmet.html">Published at November 25, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/11/07/RackAcceptDefault.html">rack-accept-default から知ったこと</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>Garage のコードを読み始めてまず目についたのが</p>
+
+<p>require "rack-accept-default"</p>
+
+<p><a href="https://github.com/miyagawa/rack-accept-default">miyagawa/rack-accept-default</a></p>
+
+<p>これはなんだろうと思うと、</p>
+
+<p>まあ README の内容なんだけれど、</p>
+
+<blockquote>
+  <p>Rack::AcceptDefault is a tiny piece of middleware that sets default Accept: header when it isn't present, to work around Rails 3.x issues.</p>
+</blockquote>
+
+<blockquote>
+  <p>Rails default MIME negotiation (in ActionPack) handles requests without Accept: headers as invalid, and assume it wants the HTML view. This assumption is wrong per RFC 2616 HTTP/1.1 specification.</p>
+</blockquote>
+
+<blockquote>
+  <p>If no Accept header field is present, then it is assumed that the client accepts all media types
+Rack::AcceptDefault is a piece of Rack middleware that provides a convenient way to work around this problem, by setting the <code>*/*</code> value to the Accept header when it is not present.</p>
+</blockquote>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a> に、</p>
+
+<blockquote>
+  <p>If no Accept header field is present, then it is assumed that the client accepts all media types</p>
+</blockquote>
+
+<p>Accept header が渡されない場合、all media types つまり <code>*/*</code> とする。とある。</p>
+
+<p>Rails では <code>*/*</code> ではなくて html としている。</p>
+
+<p>コードを見ると、Rails 3.x 限定というわけではなく、現在もそうだ。
+該当箇所はこの辺。</p>
+
+<p>rails/rails/actionpack/lib/action_dispatch/http</p>
+
+<pre><code>  def formats
+    @env["action_dispatch.request.formats"] ||= begin
+      params_readable = begin
+                          parameters[:format]
+                        rescue ActionController::BadRequest
+                          false
+                        end
+      if params_readable
+        Array(Mime[parameters[:format]])
+      elsif use_accept_header &amp;&amp; valid_accept_header
+        accepts
+      elsif xhr?
+        [Mime::JS]
+      else
+        [Mime::HTML]
+      end
+    end
+  end
+</code></pre>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/11/07/RackAcceptDefault.html">Published at November 07, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/10/27/RSpecMinimal.html">rspec の最小構成</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>ここにある。たまに失うのでメモしておく。</p>
+
+<p><a href="https://github.com/284km/rspec-minimal">https://github.com/284km/rspec-minimal</a></p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/10/27/RSpecMinimal.html">Published at October 27, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/10/27/MakeBookmarkletFaster.html">Make bookmarklet faster</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>javascript を書いて、closure-compiler で compile して頭に javascript: を付けるのが一番簡単ぽい。</p>
+
+<p>http://closure-compiler.appspot.com/home</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/10/27/MakeBookmarkletFaster.html">Published at October 27, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Rails4 の assets precompile に関する注意点と現時点での対応方法</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>身近なところで、よく困っているところを目にする問題なので、ちょっとまとめておく。</p>
+
+<p>まず問題となっているのは、rails4 にしたら画像が表示されない! みたいな事象。</p>
+
+<p>それは、Rails4 からは digest 無しの js, css, image は作成しない仕様となった為。
+以下で詳しく説明してくれている。</p>
+
+<p>http://qiita.com/wadako111/items/03bc00d914e62243a511</p>
+
+<p>ここでは以下の対処方法を提示してくれている。</p>
+
+<ul>
+  <li>
+    <p>asset_path関数, image-url関数を使う</p>
+  </li>
+  <li>
+    <p>public/assets 以下に画像を直接置く</p>
+  </li>
+  <li>
+    <p>public/images 以下に画像を置く</p>
+  </li>
+</ul>
+
+<p>個人的には以下の jnchito さん記事の non-stupid-digest-assets gemを導入する。
+で一先ず対応しておくのがよいと思っている。</p>
+
+<p>http://qiita.com/jnchito/items/07f2e3ca29f9881b83d6</p>
+
+<p>issues も相当長くなっている。</p>
+
+<p>https://github.com/rails/sprockets-rails/issues/49</p>
+
+<p>以下のメッセージを最後に lock されているので、今後何らかの変更があるのかもしれない。と思っている。
+そういう訳で、自分の場合は <a href="https://github.com/alexspeller/non-stupid-digest-assets">alexspeller/non-stupid-digest-assets</a> を使ってとりあえず様子を見ておくことが、一番よいのではないかという考えをしています。</p>
+
+<blockquote>
+  <p>Thank you. I locked this conversation. We already have enough information to think about this issue and in fact we are going to handle it in some way (we already did some improvements on master branch to alleviate the pain). If we think we need more feedback from the community I'll reopen the thread.</p>
+</blockquote>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Published at October 22, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/10/02/StopTail.html">tail -f を一時的に止める</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>ctrl + s で止めて</p>
+
+<p>ctrl + q で再開する</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/10/02/StopTail.html">Published at October 02, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/09/30/Book.html">技術書の選び方を相談されて考えたこと</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>初心者向けの技術書の選び方、 Amazon のランキングで選べばいい? って聞かれた。</p>
+
+<p>うーむ、いいかもしれないけど、だめかもしれない。まあ、駄目だな。</p>
+
+<p>駄目ってことはないかもしれない。その人にとって本を引き当てるかもしれない。
+でも僕が駄目とした理由はそこではなくて、</p>
+
+<p>なぜその本なのか。その理由が無くなってしまうから。</p>
+
+<p>乱読ならそれでよいと思う。でもこの場合、技術書だ。知識を得るための選択をするべきだ。
+そういう本は、ちゃんと選ぶべきだ。なぜその本を選んだのか。最終的に理由があるはずだ。</p>
+
+<p>その理由を踏まえて読むとより効果的に知識を得られることがあるし、
+その理由により、次に読む本。より深くだったり、足りない何かを補う為の別の本だったりするかもしれない。</p>
+
+<p>こういった発展性が無くなってしまうんだ。ランキングだと。</p>
+
+<p>そんなようなことを思った。</p>
+
+<p>P.S.</p>
+
+<p>これははてなブログに書いてもいいかんじの内容かなあとか考えてるけど何の為に使いわけようとしたんだっけとかよくわからないことになってる。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/09/30/Book.html">Published at September 30, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/09/29/WhereIsMyCnf.html">where is my.cnf</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>my.cnf どこにあるんだ? という時、以下で確認してみる。</p>
+
+<pre><code>mysql --help | grep my.cnf
+</code></pre>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/09/29/WhereIsMyCnf.html">Published at September 29, 2014.</a></h6>
+  </article>
+  <hr>
+
+  
+    <p><a class="button" href="/page/2/">Next page</a></p>
+  
+
+      </div>
+      <!-- End Main Content -->
+
+      <!-- Sidebar -->
+      <aside class="large-3 columns">
+
+      <h4>Recent Entries</h4>
+      <ul>
+        
+          <li><a href="/2014/12/18/PtOnlineSchemaChange.html">pt-online-schema-change</a> <span>Dec 18</span></li>
+        
+          <li><a href="/2014/12/05/UrlEncodeWithPLUS.html">URL エンコードの + と %20 などの挙動でハマったこと</a> <span>Dec 05</span></li>
+        
+          <li><a href="/2014/11/25/Emmet.html">Emmet を導入してみた</a> <span>Nov 25</span></li>
+        
+          <li><a href="/2014/11/07/RackAcceptDefault.html">rack-accept-default から知ったこと</a> <span>Nov 07</span></li>
+        
+          <li><a href="/2014/10/27/RSpecMinimal.html">rspec の最小構成</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/27/MakeBookmarkletFaster.html">Make bookmarklet faster</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Rails4 の assets precompile に関する注意点と現時点での対応方法</a> <span>Oct 22</span></li>
+        
+          <li><a href="/2014/10/02/StopTail.html">tail -f を一時的に止める</a> <span>Oct 02</span></li>
+        
+          <li><a href="/2014/09/30/Book.html">技術書の選び方を相談されて考えたこと</a> <span>Sep 30</span></li>
+        
+          <li><a href="/2014/09/29/WhereIsMyCnf.html">where is my.cnf</a> <span>Sep 29</span></li>
+        
+      </ul>
+
+      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
+
+      <h4>Categories</h4>
+      <ul>
+        
+          <li><a href="/tags/tool.html">tool</a> (3)</a></li>
+        
+          <li><a href="/tags/iterm.html">iterm</a> (1)</a></li>
+        
+          <li><a href="/tags/diary.html">diary</a> (20)</a></li>
+        
+          <li><a href="/tags/github.html">github</a> (1)</a></li>
+        
+          <li><a href="/tags/php.html">php</a> (1)</a></li>
+        
+          <li><a href="/tags/blog.html">blog</a> (3)</a></li>
+        
+          <li><a href="/tags/windows.html">windows</a> (5)</a></li>
+        
+          <li><a href="/tags/android.html">android</a> (4)</a></li>
+        
+          <li><a href="/tags/javascript.html">javascript</a> (6)</a></li>
+        
+          <li><a href="/tags/css.html">css</a> (3)</a></li>
+        
+          <li><a href="/tags/bestpractice.html">bestpractice</a> (3)</a></li>
+        
+          <li><a href="/tags/eclipse.html">eclipse</a> (1)</a></li>
+        
+          <li><a href="/tags/chrome.html">chrome</a> (3)</a></li>
+        
+          <li><a href="/tags/indexeddb.html">indexeddb</a> (1)</a></li>
+        
+          <li><a href="/tags/example.html">example</a> (1)</a></li>
+        
+          <li><a href="/tags/ruby.html">ruby</a> (6)</a></li>
+        
+          <li><a href="/tags/postgresql.html">postgresql</a> (1)</a></li>
+        
+          <li><a href="/tags/vps.html">vps</a> (2)</a></li>
+        
+          <li><a href="/tags/nginx.html">nginx</a> (1)</a></li>
+        
+          <li><a href="/tags/vim.html">vim</a> (2)</a></li>
+        
+          <li><a href="/tags/backbone.html">backbone</a> (1)</a></li>
+        
+          <li><a href="/tags/rails.html">rails</a> (6)</a></li>
+        
+          <li><a href="/tags/rails4.html">rails4</a> (1)</a></li>
+        
+          <li><a href="/tags/ubuntu.html">ubuntu</a> (6)</a></li>
+        
+          <li><a href="/tags/git.html">git</a> (3)</a></li>
+        
+          <li><a href="/tags/middleman.html">middleman</a> (1)</a></li>
+        
+          <li><a href="/tags/mysql.html">mysql</a> (4)</a></li>
+        
+          <li><a href="/tags/ibus.html">ibus</a> (1)</a></li>
+        
+          <li><a href="/tags/c.html">c</a> (2)</a></li>
+        
+          <li><a href="/tags/java.html">java</a> (4)</a></li>
+        
+          <li><a href="/tags/json.html">json</a> (1)</a></li>
+        
+          <li><a href="/tags/intellij.html">intellij</a> (1)</a></li>
+        
+          <li><a href="/tags/vagrant.html">vagrant</a> (4)</a></li>
+        
+          <li><a href="/tags/ie.html">ie</a> (2)</a></li>
+        
+          <li><a href="/tags/jenkins.html">jenkins</a> (1)</a></li>
+        
+          <li><a href="/tags/english.html">english</a> (2)</a></li>
+        
+          <li><a href="/tags/virtualbox.html">virtualbox</a> (1)</a></li>
+        
+          <li><a href="/tags/turbolinks.html">turbolinks</a> (1)</a></li>
+        
+          <li><a href="/tags/mruby.html">mruby</a> (1)</a></li>
+        
+          <li><a href="/tags/linux.html">linux</a> (1)</a></li>
+        
+          <li><a href="/tags/js.html">js</a> (1)</a></li>
+        
+          <li><a href="/tags/engineer.html">engineer</a> (1)</a></li>
+        
+          <li><a href="/tags/twitter.html">twitter</a> (2)</a></li>
+        
+          <li><a href="/tags/jquery.html">jquery</a> (1)</a></li>
+        
+          <li><a href="/tags/golang.html">golang</a> (1)</a></li>
+        
+          <li><a href="/tags/environment.html">environment</a> (1)</a></li>
+        
+          <li><a href="/tags/rspec.html">rspec</a> (1)</a></li>
+        
+          <li><a href="/tags/perl.html">perl</a> (2)</a></li>
+        
+          <li><a href="/tags/web.html">web</a> (1)</a></li>
+        
+          <li><a href="/tags/tmux.html">tmux</a> (1)</a></li>
+        
+          <li><a href="/tags/toeic.html">toeic</a> (1)</a></li>
+        
+          <li><a href="/tags/ios.html">ios</a> (5)</a></li>
+        
+          <li><a href="/tags/xcode.html">xcode</a> (1)</a></li>
+        
+          <li><a href="/tags/html.html">html</a> (1)</a></li>
+        
+          <li><a href="/tags/pt-pnline-schema-change.html">pt-pnline-schema-change</a> (1)</a></li>
+        
+          <li><a href="/tags/sh.html">sh</a> (1)</a></li>
+        
+          <li><a href="/tags/product.html">product</a> (1)</a></li>
+        
+          <li><a href="/tags/compass.html">compass</a> (1)</a></li>
+        
+          <li><a href="/tags/redis.html">redis</a> (1)</a></li>
+        
+      </ul>
+      <h4>By Year</h4>
+      <ul>
+        
+          <li><a href="/2014.html">2014</a> (73)</a></li>
+        
+          <li><a href="/2013.html">2013</a> (32)</a></li>
+        
+          <li><a href="/2012.html">2012</a> (2)</a></li>
+        
+      </ul>
+
+      <div class="panel">
+        <h5>Featured</h5>
+        <p> - The status of my iOS app is "Waiting For Review" now.</p>
+      </div>
+
+      <section class="coderwall" data-coderwall-username="284km" data-coderwall-orientation="horizontal"></section>
+
+      </aside>
+      <!-- End Sidebar -->
+
+    </div>
+    <!-- End Main Content and Sidebar -->
+
+    <!-- Footer -->
+    <footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>Kazuma Furuhashi @284km</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation.min.js"></script>
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js">
+    <script>
+      $(document).foundation();
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </body>
+</html>

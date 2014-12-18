@@ -1,0 +1,672 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is 284km's diary.">
+    <title>Drafts</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"></link>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+          <ul class="button-group">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+        <h1>Drafts <small>as my diary.</small></h1>
+        <hr>
+      </div>
+    </div>
+    <!-- End Nav -->
+
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+
+      <!-- Main Blog Content -->
+      <div id="main" class="large-9 columns" role="main">
+          <p>Page 10 of 11</p>
+
+  
+    <p><a class="button" href="/page/9/">Previous page</a></p>
+  
+
+  <article>
+  <h3><a href="/2013/06/14/TwitterClientEasy.html">Dead Simple twitter client in Terminal</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>よくあるターミナルでやるやつです。
+アプリケーション登録する必要があります。</p>
+
+<p>引数をつぶやきます。引数無しでタイムライン表示します。細かいことは考えません。
+たとえばこんな感じに使います。 twt.rb というファイル名で以下のコードを保存してruby twt.rb hey! I am tweeting!! とつぶやいたり、ruby twt.rb でタイムライン表示します。</p>
+
+<pre><code>require 'twitter'↲
+@client = Twitter::Client.new(↲
+  consumer_key: "xxx",↲
+  consumer_secret: "xxx",↲
+  oauth_token: "xxx",↲
+  oauth_token_secret: "xxx"↲
+)↲
+if ARGV[0]↲
+  @client.update(ARGV.join(" "))↲
+  puts "updated:" + ARGV.join(" ")↲
+else↲
+  @client.home_timeline.each do |tl|↲
+    puts "#{tl.from_user}: #{tl.created_at}"↲
+    puts " -&gt; #{tl.text}"↲
+  end↲
+end↲
+</code></pre>
+
+<p>というもの</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/06/14/TwitterClientEasy.html">Published at June 14, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/05/13/MySQL51to55.html">MySQL 5.1 to 5.5 バージョンアップによるオプションの修正</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>MySQL のバージョンをあげる際、オプションが変わっていたりした。</p>
+
+<ul>
+  <li>default-character-set</li>
+</ul>
+
+<p>5.5 からは</p>
+
+<pre><code>character-set-server=utf8mb4
+</code></pre>
+
+<p>utf8mb4は MySQL 5.5.3 で対応した 4バイトUTF-8 キャラクタセット。</p>
+
+<p>ちなみに [client] のオプションはそのままだそうな。</p>
+
+<pre><code>[client]
+default-character-set=utf8mb4
+</code></pre>
+
+<ul>
+  <li>table_cache</li>
+</ul>
+
+<p>こちらは 5.1.3 で変わっている模様。以下の様にしましょう。</p>
+
+<pre><code>table_open_cache=512
+</code></pre>
+
+<ul>
+  <li>log</li>
+</ul>
+
+<p>5.1 からは、ファイル名とフラグで管理する様だ。</p>
+
+<pre><code>general_log=1
+general_log_file=/mysql/logs/mysql.log
+</code></pre>
+
+<ul>
+  <li>log_slow_queries</li>
+</ul>
+
+<p>こちらも同様に、5.1 からはファイル名とフラグで管理する。</p>
+
+<pre><code>slow_query_log = 1
+slow_query_log_file = /mysql/logs/slow.log
+long_query_time =1
+</code></pre>
+
+<p>とりあえずぶちあたったのはこれら。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/05/13/MySQL51to55.html">Published at May 13, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/05/12/VagrantIP.html">Vagrant 仮想環境にIPを割当てたい</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>Vagrantfile に追記する</p>
+
+<pre><code>config.vm.network :private_network, ip: "192.168.50.11"
+</code></pre>
+
+<p>そして</p>
+
+<pre><code>vagrant reload
+</code></pre>
+
+<p>で反映されます。</p>
+
+<p>設定したIPで ssh や MySQL できる様になりました。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/05/12/VagrantIP.html">Published at May 12, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/05/11/256ColorScript.html">ターミナルが256色対応しているか視覚的にわかるスクリプト</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>これはわかりやすい。
+試すのもかんたん。</p>
+
+<p>wget して</p>
+
+<pre><code>wget http://www.frexx.de/xterm-256-notes/data/256colors2.pl
+</code></pre>
+
+<p>実行して</p>
+
+<pre><code>perl 256colors2.pl
+</code></pre>
+
+<p>カラフルですか？</p>
+
+<p>対応していないと、同色でかっこ悪い感じに表示されます。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/05/11/256ColorScript.html">Published at May 11, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/05/11/VagrantMemory.html">Vagrant のメモリ割当て</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>ちょっと貧弱貧弱ゥ!だったのでメモリを2Gに強化した。</p>
+
+<p>Vagrantfile に書く</p>
+
+<pre><code>config.vm.provider :virtualbox do |vb|
+  # Don't boot with headless mode
+  # vb.gui = true
+
+  # Use VBoxManage to customize the VM. For example to change memory:
+  vb.customize ["modifyvm", :id, "--memory", "2048"]
+end
+</code></pre>
+
+<p>そして 再起動する。</p>
+
+<pre><code>vagrant reload
+</code></pre>
+
+<p><a href="http://docs-v1.vagrantup.com/v1/docs/getting-started/ports.html">vagrant reload は稼働しつつ設定ファイルだけ読み込めるわけではないので注意</a></p>
+
+<blockquote>
+  <p>calling vagrant reload will apply them without re-importing and re-building everything.</p>
+</blockquote>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/05/11/VagrantMemory.html">Published at May 11, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/05/10/Win7VagrantCentOS64.html">Windows7でVagrant - CentOS6.4を使う</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>必要に迫られて win7 な環境でもやったのでメモ。</p>
+
+<p>まずは VirtualBox と Vagrant をインストールする。</p>
+
+<p>for Windows なやつを設定はデフォルトで入れた。</p>
+
+<p>そうそう <a href="http://rubyinstaller.org/">ruby</a> も入れておく必要がある。</p>
+
+<p>CentOS は 6.4 がきてたのでこれにした。</p>
+
+<pre><code>vagrant box add centos http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130309.box
+</code></pre>
+
+<p>box add でこんなエラーがでた</p>
+
+<pre><code>/vagrant/embedded/gems/gems/vagrant-1.1.2/lib/vagrant/environment.rb:516:in `expand_path': non-absolute home (ArgumentError)
+</code></pre>
+
+<p>環境変数 HOME が設定されているのがいけない様なので消してから box add したら上手くいった。</p>
+
+<pre><code>set HOME=
+</code></pre>
+
+<p>vagrant up して vagrant ssh すると ssh が無いぞと言われる(ホスト情報が出力されているので teraterm 使って入りました)</p>
+
+<pre><code>Host: 127.0.0.1
+Port: 2222
+Username: vagrant
+Private key: C:/Users/kazuma/.vagrant.d/insecure_private_key
+</code></pre>
+
+<p>こんな感じでした。かんたん！</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/05/10/Win7VagrantCentOS64.html">Published at May 10, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/05/09/JavaDataSourceConnect.html">Java DataSource Connect への道</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>Java のはなしを(ry</p>
+
+<p>web.xml にこう書いて</p>
+
+<pre><code>&lt;resource-ref&gt;
+    &lt;res-ref-name&gt;jdbc/name&lt;/res-ref-name&gt;
+    &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+    &lt;res-auth&gt;Container&lt;/res-auth&gt;
+&lt;/resource-ref&gt;
+</code></pre>
+
+<p>context.xml にはこう書いて META-INF の下みたいなところにつっこんでおく。</p>
+
+<pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;Context&gt;
+    &lt;Resource
+        name="jdbc/name"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/dbname?autoReconnect=true&amp;amp;characterEncoding=UTF8&amp;amp;zeroDateTimeBehavior=convertToNull"
+        username="user"
+        password="pass"
+        maxActive="100"
+        maxIdle="10"
+        maxWait="10000"
+        testOnBorrow="true"
+        validationQuery="SELECT 1"
+        removeAbandoned="true"
+        removeAbandonedTimeout="100"
+        logAbandoned="true"
+        /&gt;
+    &lt;Resource
+        name="jdbc/name2"
+        こんな感じに複数定義可能。paramは上と同じ感じなので略。
+        /&gt;
+&lt;/Context&gt;
+</code></pre>
+
+<p>validationQuery は死活監視のために発行するSQLにあたるようだ。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/05/09/JavaDataSourceConnect.html">Published at May 09, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/04/17/DataSourceAndDrivermanager.html">DataSource と DriverManager のこと</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <h3 id="java2">Javaのはなしをします2。</h3>
+
+<p>http://zetcode.com/tutorials/jeetutorials/datasource/</p>
+
+<blockquote>
+  <p>DataSource and the DriverManager are the two basic ways to connect to a database in a JEE application. The DriverManager is older facility, DataSource is newer. It is recommended to use the new DataSource facility to connect to databases and other resources. DataSource facility has several advantages over DriverManager facility. Using DataSource increases portability. The DataSource enables connection pooling and distributed transactions, the DriverManager does not allow such techniques. Properties of a DataSource are kept in a configuration file. Any changes to the data source or database drivers are made in the configuration file. In case of a DriverManager, these properties are hard coded in the application and for any changes we must recompile the code.</p>
+</blockquote>
+
+<p>DataSource と DriverManager という2つのDB接続方法があって</p>
+
+<p>DataSource のが新しくって接続方式として推奨されていて</p>
+
+<p>DataSource 使った方が拡張性たかい</p>
+
+<p>コネクションプーリングできちゃうし分散トランザクション可能</p>
+
+<p>DataSource は設定ファイルで完結する</p>
+
+<p>DB や driver は設定ファイルに定義する</p>
+
+<p>DriverManager だったらアプリにハードコーディングでリコンパイルが必要なところ</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/04/17/DataSourceAndDrivermanager.html">Published at April 17, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/04/11/UbuntuWin7.html">共有 utuntu - windows7</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <h3 id="ubuntu-side">ubuntu side</h3>
+
+<pre><code>sudo apt-get install samba
+sudo smbpasswd -a USERNAME
+New SMB password: PASSWORD
+Retype new SMB password: PASSWORD
+</code></pre>
+
+<p>groups して sambashare があればおｋ</p>
+
+<p>ホームに Pubulic フォルダがいたので右クリック Shareding Options を選んで以下にチェックを入れる</p>
+
+<ul>
+  <li>Share this folder</li>
+  <li>Allow others to create and delete files in this folder</li>
+</ul>
+
+<p>あとは Create Share する。</p>
+
+<p>あと ifconfig してipを調べておく。</p>
+
+<h3 id="windows-side">windows side</h3>
+
+<p>コンピュータ? を右クリックすると ネットワークドライブの割り当て があるので選ぶ。</p>
+
+<p>ubuntu side で調べたip入力して参照クリックするとさっきのPubulicフォルダとか出てくるはずなのでそれを選ぶ。</p>
+
+<p>これでおｋ。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/04/11/UbuntuWin7.html">Published at April 11, 2013.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2013/04/09/Gson.html">Java で JSON 扱うには Gson が便利だった</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <h3 id="java-">Java の話です。</h3>
+
+<p><a href="https://code.google.com/p/google-gson/">Gson</a></p>
+
+<pre><code>Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.
+</code></pre>
+
+<p>Gson を使うと Java Object から JSON、又はその逆の変換をとても簡単に行うことができます。</p>
+
+<p>Java Object to JSON</p>
+
+<pre><code>HogeParam hogeParam = new HogeParam();
+hogeParam.setId(111);
+hogeParam.setName("nyaruko");
+hogeParam.setEntries(entrieList);
+Gson gson = new Gson();
+String jsonString = gson.toJson(hogeParam);
+</code></pre>
+
+<p>JSON to Java Object</p>
+
+<pre><code>HogeParam javaParam = gson.fromJson(jsonString, HogeParam.class);
+Integer id = javaParam.getId();
+String name = javaParam.getName();
+for (Entry entry : javaParam.getEntries()) { }
+</code></pre>
+
+<p>みたいな感じに。
+リストも入れ子もいけちゃいます。らくちんらくちん。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2013/04/09/Gson.html">Published at April 09, 2013.</a></h6>
+  </article>
+  <hr>
+
+  
+    <p><a class="button" href="/page/11/">Next page</a></p>
+  
+
+      </div>
+      <!-- End Main Content -->
+
+      <!-- Sidebar -->
+      <aside class="large-3 columns">
+
+      <h4>Recent Entries</h4>
+      <ul>
+        
+          <li><a href="/2014/12/18/PtOnlineSchemaChange.html">pt-online-schema-change</a> <span>Dec 18</span></li>
+        
+          <li><a href="/2014/12/05/UrlEncodeWithPLUS.html">URL エンコードの + と %20 などの挙動でハマったこと</a> <span>Dec 05</span></li>
+        
+          <li><a href="/2014/11/25/Emmet.html">Emmet を導入してみた</a> <span>Nov 25</span></li>
+        
+          <li><a href="/2014/11/07/RackAcceptDefault.html">rack-accept-default から知ったこと</a> <span>Nov 07</span></li>
+        
+          <li><a href="/2014/10/27/RSpecMinimal.html">rspec の最小構成</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/27/MakeBookmarkletFaster.html">Make bookmarklet faster</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Rails4 の assets precompile に関する注意点と現時点での対応方法</a> <span>Oct 22</span></li>
+        
+          <li><a href="/2014/10/02/StopTail.html">tail -f を一時的に止める</a> <span>Oct 02</span></li>
+        
+          <li><a href="/2014/09/30/Book.html">技術書の選び方を相談されて考えたこと</a> <span>Sep 30</span></li>
+        
+          <li><a href="/2014/09/29/WhereIsMyCnf.html">where is my.cnf</a> <span>Sep 29</span></li>
+        
+      </ul>
+
+      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
+
+      <h4>Categories</h4>
+      <ul>
+        
+          <li><a href="/tags/tool.html">tool</a> (3)</a></li>
+        
+          <li><a href="/tags/iterm.html">iterm</a> (1)</a></li>
+        
+          <li><a href="/tags/diary.html">diary</a> (20)</a></li>
+        
+          <li><a href="/tags/github.html">github</a> (1)</a></li>
+        
+          <li><a href="/tags/php.html">php</a> (1)</a></li>
+        
+          <li><a href="/tags/blog.html">blog</a> (3)</a></li>
+        
+          <li><a href="/tags/windows.html">windows</a> (5)</a></li>
+        
+          <li><a href="/tags/android.html">android</a> (4)</a></li>
+        
+          <li><a href="/tags/javascript.html">javascript</a> (6)</a></li>
+        
+          <li><a href="/tags/css.html">css</a> (3)</a></li>
+        
+          <li><a href="/tags/bestpractice.html">bestpractice</a> (3)</a></li>
+        
+          <li><a href="/tags/eclipse.html">eclipse</a> (1)</a></li>
+        
+          <li><a href="/tags/chrome.html">chrome</a> (3)</a></li>
+        
+          <li><a href="/tags/indexeddb.html">indexeddb</a> (1)</a></li>
+        
+          <li><a href="/tags/example.html">example</a> (1)</a></li>
+        
+          <li><a href="/tags/ruby.html">ruby</a> (6)</a></li>
+        
+          <li><a href="/tags/postgresql.html">postgresql</a> (1)</a></li>
+        
+          <li><a href="/tags/vps.html">vps</a> (2)</a></li>
+        
+          <li><a href="/tags/nginx.html">nginx</a> (1)</a></li>
+        
+          <li><a href="/tags/vim.html">vim</a> (2)</a></li>
+        
+          <li><a href="/tags/backbone.html">backbone</a> (1)</a></li>
+        
+          <li><a href="/tags/rails.html">rails</a> (6)</a></li>
+        
+          <li><a href="/tags/rails4.html">rails4</a> (1)</a></li>
+        
+          <li><a href="/tags/ubuntu.html">ubuntu</a> (6)</a></li>
+        
+          <li><a href="/tags/git.html">git</a> (3)</a></li>
+        
+          <li><a href="/tags/middleman.html">middleman</a> (1)</a></li>
+        
+          <li><a href="/tags/mysql.html">mysql</a> (4)</a></li>
+        
+          <li><a href="/tags/ibus.html">ibus</a> (1)</a></li>
+        
+          <li><a href="/tags/c.html">c</a> (2)</a></li>
+        
+          <li><a href="/tags/java.html">java</a> (4)</a></li>
+        
+          <li><a href="/tags/json.html">json</a> (1)</a></li>
+        
+          <li><a href="/tags/intellij.html">intellij</a> (1)</a></li>
+        
+          <li><a href="/tags/vagrant.html">vagrant</a> (4)</a></li>
+        
+          <li><a href="/tags/ie.html">ie</a> (2)</a></li>
+        
+          <li><a href="/tags/jenkins.html">jenkins</a> (1)</a></li>
+        
+          <li><a href="/tags/english.html">english</a> (2)</a></li>
+        
+          <li><a href="/tags/virtualbox.html">virtualbox</a> (1)</a></li>
+        
+          <li><a href="/tags/turbolinks.html">turbolinks</a> (1)</a></li>
+        
+          <li><a href="/tags/mruby.html">mruby</a> (1)</a></li>
+        
+          <li><a href="/tags/linux.html">linux</a> (1)</a></li>
+        
+          <li><a href="/tags/js.html">js</a> (1)</a></li>
+        
+          <li><a href="/tags/engineer.html">engineer</a> (1)</a></li>
+        
+          <li><a href="/tags/twitter.html">twitter</a> (2)</a></li>
+        
+          <li><a href="/tags/jquery.html">jquery</a> (1)</a></li>
+        
+          <li><a href="/tags/golang.html">golang</a> (1)</a></li>
+        
+          <li><a href="/tags/environment.html">environment</a> (1)</a></li>
+        
+          <li><a href="/tags/rspec.html">rspec</a> (1)</a></li>
+        
+          <li><a href="/tags/perl.html">perl</a> (2)</a></li>
+        
+          <li><a href="/tags/web.html">web</a> (1)</a></li>
+        
+          <li><a href="/tags/tmux.html">tmux</a> (1)</a></li>
+        
+          <li><a href="/tags/toeic.html">toeic</a> (1)</a></li>
+        
+          <li><a href="/tags/ios.html">ios</a> (5)</a></li>
+        
+          <li><a href="/tags/xcode.html">xcode</a> (1)</a></li>
+        
+          <li><a href="/tags/html.html">html</a> (1)</a></li>
+        
+          <li><a href="/tags/pt-pnline-schema-change.html">pt-pnline-schema-change</a> (1)</a></li>
+        
+          <li><a href="/tags/sh.html">sh</a> (1)</a></li>
+        
+          <li><a href="/tags/product.html">product</a> (1)</a></li>
+        
+          <li><a href="/tags/compass.html">compass</a> (1)</a></li>
+        
+          <li><a href="/tags/redis.html">redis</a> (1)</a></li>
+        
+      </ul>
+      <h4>By Year</h4>
+      <ul>
+        
+          <li><a href="/2014.html">2014</a> (73)</a></li>
+        
+          <li><a href="/2013.html">2013</a> (32)</a></li>
+        
+          <li><a href="/2012.html">2012</a> (2)</a></li>
+        
+      </ul>
+
+      <div class="panel">
+        <h5>Featured</h5>
+        <p> - The status of my iOS app is "Waiting For Review" now.</p>
+      </div>
+
+      <section class="coderwall" data-coderwall-username="284km" data-coderwall-orientation="horizontal"></section>
+
+      </aside>
+      <!-- End Sidebar -->
+
+    </div>
+    <!-- End Main Content and Sidebar -->
+
+    <!-- Footer -->
+    <footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>Kazuma Furuhashi @284km</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation.min.js"></script>
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js">
+    <script>
+      $(document).foundation();
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </body>
+</html>

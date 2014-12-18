@@ -1,0 +1,776 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is 284km's diary.">
+    <title>Drafts</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.min.css">
+    <link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css"></link>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+          <ul class="button-group">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+        <h1>Drafts <small>as my diary.</small></h1>
+        <hr>
+      </div>
+    </div>
+    <!-- End Nav -->
+
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+
+      <!-- Main Blog Content -->
+      <div id="main" class="large-9 columns" role="main">
+          <p>Page 4 of 11</p>
+
+  
+    <p><a class="button" href="/page/3/">Previous page</a></p>
+  
+
+  <article>
+  <h3><a href="/2014/06/09/iosLifeCycle.html">iOS UIViewController lifecycle</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <h3 id="uiviewcontroller-">UIViewController のライフサイクルについて</h3>
+
+<p>http://blog.77jp.net/iphone%E9%96%8B%E7%99%BA-uiviewcontroller-%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB-viewdidload-viewwillappear-viewdidappear-viewwilldisappear-viewdiddisappear-ios-%E9%80%86
+http://blog.livedoor.jp/sasata299/archives/52029262.html</p>
+
+<blockquote>
+  <p>アプリがバックグラウンドへ移動した場合や、他のアプリ、
+他の機能にて当Viewがメモリから削除された場合は、再度 viewDidLoad が実行されます。</p>
+</blockquote>
+
+<blockquote>
+  <p>init(インスタンス作成時に呼び出したイニシャライザ)
+　　↓
+viewDidLoad
+　・View が初めて呼び出される時に1回だけ呼ばれます。
+　・アプリ起動後に初めて当Viewが表示された場合に1度だけ呼ばれます。
+　　↓
+viewWillAppear
+　・View が表示される直前に呼ばれるメソッド
+　・タブ等の切り替え等により、画面に表示されるたびに呼び出されます。
+　・タブが切り替わるたびに何度でも呼ばれます。
+　　↓
+viewDidAppear
+　・View の表示が完了後に呼び出されるメッソド
+　・タブ等の切り替え等により、画面に表示されるたびに呼び出されます。
+　・タブが切り替わるたびに何度でも呼ばれます。
+　　↓
+viewWillDisappear
+　・View が他のView (画面から消える) 直前に呼び出されるメッソド
+　・View が他のView (画面から消える) 直前に呼び出されるメッソド
+　・タブが切り替わるたびに何度でも呼ばれます。
+　　↓
+viewDidDisappear
+　・View が他のView (画面から消えた) 非表示後に呼び出されるメッソド
+　・View が他のView (画面から消える) 直前に呼び出されるメッソド
+　・タブが切り替わるたびに何度でも呼ばれます。</p>
+</blockquote>
+
+<hr />
+
+<p>起動したとき</p>
+
+<ul>
+  <li>ViewController viewDidLoad</li>
+  <li>ViewController viewWillAppear</li>
+  <li>ViewController viewDidAppear</li>
+</ul>
+
+<p>Nextボタンをタップして遷移したとき</p>
+
+<ul>
+  <li>NextViewController viewDidLoad</li>
+  <li>ViewController viewWillDisappear</li>
+  <li>NextViewController viewWillAppear</li>
+  <li>ViewController viewDidDisappear</li>
+  <li>NextViewController viewDidAppear</li>
+</ul>
+
+<p>戻ったとき</p>
+
+<ul>
+  <li>NextViewController viewWillDisappear</li>
+  <li>ViewController viewWillAppear</li>
+  <li>NextViewController viewDidDisappear</li>
+  <li>ViewController viewDidAppear</li>
+</ul>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/06/09/iosLifeCycle.html">Published at June 09, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/06/02/Android.html">Android app</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>ひっさびさに Android した。普段慣れ親しまないので、やるたびに記憶が無くて本当に厳しい。
+今日は Android Studio を使ってみた。特に理由はない。使ってみたかったから。</p>
+
+<p>UI を適当にあれして。テキストとかボタン貼っつけて、
+textsize とかと同じ並びで、onClick とか書けるのって、結構初心者にもとっつきやすいよなあとか
+考えながら、とりあえず適当に何か見つけたサンプルでカウンタみたいなやつを作ってみた。</p>
+
+<p>https://github.com/284km/Counter</p>
+
+<p>Android なー。まあまあ作っていて楽しい。でも深く踏み入っていくと辛い世界なのかなあ。
+評判きく限りではそんな感じみたいだけれど。
+まあ、自分が作っていて楽しいうちは別に全然よいと思うので、
+もう少しまともな Android 力くらい身につけたいものです。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/06/02/Android.html">Published at June 02, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/06/01/Githubkaigi.html">Everything should have an URL</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>githubkaigi ですごく大事なこと言ってた。</p>
+
+<p>Everything should have an URL</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/06/01/Githubkaigi.html">Published at June 01, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/23/Toeic.html">TOEIC</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>2014/05/23 12:18:28</p>
+
+<p>TOEIC に関しておすすめの勉強法について書いてみる。</p>
+
+<ul>
+  <li>
+    <p>まず1回受ける。ことをおすすめする。</p>
+  </li>
+  <li>
+    <p>そして、勉強を始める。
+順番は厳密に定めないが、早い内に TOEIC について知っておくのがよいと思う。
+いわゆる TOEIC 対策的なやつ。問題の解き方とか、傾向と勉強法みたいなやつを。</p>
+  </li>
+  <li>
+    <p>文法は大丈夫か?
+中学英語の文法までで、基本的には十分だと思う。
+分からない場合には問題見ても何が書かれているか理解できないと思うので運試しにしかならないだろう。
+ということで中学英語程度の文法は必須と思う。</p>
+  </li>
+  <li>
+    <p>単語
+これはかなり重要で、中学英語までだと全然足りない。
+よくある売れてる単語の本とか1冊あっていいと思う。熟練者でなければ。
+模試しながら知らない単語だらけだと、都度調べるのも時間がかなりかかるので、
+単語全然わからんなーという感じであったら、単語帳とにらめっこの期間を設ける方が効率良さそう。</p>
+  </li>
+  <li>
+    <p>ここまでがあると戦うための道具がそろっているのではないか。
+あとは公式問題集みたいなやつで模試してみるとよいと思う。
+自分がどれくらいか。とか、何が駄目だとかが不正解によってはっきり分かる。
+まずは、間違えた問題について何故間違えたか、何が正しかったか。みたいなところを
+はっきりさせていく作業をこなすことになるだろう。
+その中で少しづつ身につくものがあることを、実感できるだろうし繰り返すことにより
+点数にあらわれてくるはずだ。</p>
+  </li>
+</ul>
+
+<p>つづきはまた書く。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/23/Toeic.html">Published at May 23, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/22/BestpracticeJs.html">Bestpractice Javascript</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <ul>
+  <li>2014/05/22 16:55:30</li>
+</ul>
+
+<p>今断言できるとかいうあれじゃない。bestpractice というカテゴリを作って、
+今後継続して育てていこうという考えがずっと前からあった。
+と言ってもなかなかよし書こうというタイミングが来なくてずっとそのままになっていた。
+そんなものなのかもしれない。</p>
+
+<p>javascript についてはちょっとここらへんで一旦まとめるのも良いかもしれないと思って書いてみる。
+クライアントサイドのフレームワークのはなしだ。</p>
+
+<p>今使っているのは Backbone.js</p>
+
+<p>対抗馬として Angular.js がいる。
+しかし難しそうというイメージで (少しだけ見たけれどまともには使っていない)、
+あと、よく言われている行儀が悪いというのは自分も同意見。</p>
+
+<p>そういったあたりを踏まえて、現状は Backbone という選択をしている。</p>
+
+<p>とはいえ、必要とするのは主にバインディング。
+モデルを変更すればビューが自動的に反映されれば基本的にはOK.
+大規模なものを作る機会はそうそうないから。現時点においては。
+そうすると、Angular というのはよい選択でもある。
+それでもやはり今 Angular にいかない理由として自分の js 力というのもあるかな。
+js 力がもう少し高まるまでは、なるべく行儀の良い方法に沿っておくべきな気がしている。
+そういう理由もある。</p>
+
+<p>そのほか、Vue.js に着目している。mizchi さんが最近 Vue.js に足りない部分を補っていて
+行く末にかなり着目している。筋のよい js 使いによる、筋の良い実装みたいなところの行く先
+はどんななのか。という感じ。</p>
+
+<p>とりあえず今の時点ではここまで書いておくことにする。また追記をする予定。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/22/BestpracticeJs.html">Published at May 22, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/21/English.html">English 20130521</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>今日は昨日に引き続きスキルポイントを英語に振った。
+ゆっくり読めば大体分かる。早く読むことが出来ない。耳に関しては明らかに悪い。しゃべることは置いといてる。
+日本語で同等の文章であればさらっと数十秒で済むもの。そうだよ、新書とか大体30分程度でひととおり読むことができるわけだ日本語ならば。
+それと同程度を目指したい。同程度はだいぶ難しそうなイメージだけれど、それくらい早く読めるようにしたい。たくさん読むしかないのかな基本的には。
+まあ引き続き励みます。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/21/English.html">Published at May 21, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/16/RubyGuardingWithArrays.html">Ruby Guarding with arrays</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <ul>
+  <li>
+    <p>nil のときエラーになる</p>
+
+    <p>params[:pictures].each do |picture|
+    foobar
+  end</p>
+  </li>
+  <li>
+    <p>ちょいださい</p>
+
+    <p>(params[:pictures] || []).each do |picture|
+  end</p>
+  </li>
+  <li>
+    <p>こういうのある</p>
+
+    <p>Array(params[:pictures]).each do |picture|
+  end</p>
+  </li>
+</ul>
+
+<p>というメモ。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/16/RubyGuardingWithArrays.html">Published at May 16, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/15/DeleteGithubBranch.html">Delete branch on Github</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>github 上に間違ったブランチを push してしまって消したいとき。</p>
+
+<p>local なら、 git branch -D branchname でいい。</p>
+
+<p>github に push 済みのブランチについては</p>
+
+<p>git push origin :branchname</p>
+
+<p>とする。</p>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/15/DeleteGithubBranch.html">Published at May 15, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/14/OmniAuth.html">Multi Account Omni Auth</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>記録として一応残すのだけれど、
+結局 twitter oauth だと mail address が返らないため、そのまま devise の流儀にあてはめることはできなかったりで hack が必要。
+だからこの記事は思い出す様に残す。あてにはしないこと。</p>
+
+<p>追加する gem はこんな感じ。omniauth- 各種は使うものだけでいい。</p>
+
+<pre><code>gem 'devise'
+gem 'omniauth'
+gem 'omniauth-hatena'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'figaro'
+</code></pre>
+
+<p>bundle install したら、</p>
+
+<pre><code>rails g install:figaro
+</code></pre>
+
+<p>すると config/application.yml が作られて .gitignore にも</p>
+
+<pre><code># Ignore application configuration
+/config/application.yml
+</code></pre>
+
+<p>が足される。config/application.yml にはこんな感じで書く。</p>
+
+<pre><code>TWITTER_CONSUMER_KEY: "xxx"
+TWITTER_CONSUMER_SECRET: "yyy"
+GITHUB_CONSUMER_KEY: "zzz"
+GITHUB_CONSUMER_SECRET: "aaa"
+</code></pre>
+
+<ul>
+  <li>
+    <p>config/initializers/omniauth.rb に設定を書く。</p>
+
+    <p>Rails.application.config.middleware.use OmniAuth::Builder do
+  #  provider :hatena,
+  #  ENV['HATENA_CONSUMER_KEY'],
+  #  ENV['HATENA_CONSUMER_SECRET'],
+  #  {
+  #    scope: "write_public,read_public,write_private,read_private"
+  #  }</p>
+
+    <pre><code>provider :twitter,
+ENV['TWITTER_CONSUMER_KEY'],
+ENV['TWITTER_CONSUMER_SECRET']
+</code></pre>
+
+    <p>#  provider :github,
+  #  ENV['GITHUB_CONSUMER_KEY'],
+  #  ENV['GITHUB_CONSUMER_SECRET']
+  end</p>
+  </li>
+  <li>
+    <p>Model を作る</p>
+
+    <p>rails g devise:install
+  rails g devise user
+  rails g model auth uid:string provider:string name:string user:references</p>
+  </li>
+</ul>
+
+<p>メールを使う場合はとりあえず config/environments/development.rb に以下を書いた。</p>
+
+<pre><code>config.action_mailer.default_url_options = { :host =&gt; 'localhost:3000' }
+</code></pre>
+
+<p>config/environments/production.rb はそれなりに。</p>
+
+<pre><code># Email
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
+config.action_mailer.default_url_options = { :host =&gt; config.app_domain }
+config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com', 
+  port: '587',
+  enable_starttls_auto: true,
+  user_name: '',
+  password: '',
+  authentication =&gt; :plain,
+  domain =&gt; 'somedomain.com'
+}
+</code></pre>
+
+<p>app/model/user.rb をちょっと修正</p>
+
+<pre><code>class User &lt; ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  has_many :auths
+end
+</code></pre>
+
+<ul>
+  <li>
+    <p>Controller</p>
+
+    <p>rails g controller home index
+  rails g controller auth create destroy</p>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/14/OmniAuth.html">Published at May 14, 2014.</a></h6>
+  </article>
+  <hr>
+  <article>
+  <h3><a href="/2014/05/13/ClearFix.html">clearfix using compass</a></h3>
+  <!-- use article.summary(250) if you have Nokogiri available to show just
+  the first 250 characters -->
+  <div class="row">
+    <div class="large-6 columns">
+      <p>compass を触っていた。なんとなくしか知らなかった css, less, scss(sass) 辺りの違いから入って、compass の公式ページをひと通り見て、結局 rails で使ってしまうのが総合的に見て楽そう (asset pipline) だなあという感触だった。</p>
+
+<p>そういうわけで、少しだけ css 界について知ることが出来た。</p>
+
+<p>自分は sass, compass を選択した。</p>
+
+<pre><code>gem 'sass-rails'
+gem 'compass-rails'
+</code></pre>
+
+<p>だ。ベースとなる sass ファイルの頭で</p>
+
+<pre><code>@import "compass/utilities"
+@import "compass/css3"
+@import "compass/reset"
+</code></pre>
+
+<p>している。compass の簡単な例として clearfix のものが以下。
+たとえば</p>
+
+<ul>
+  <li>
+    <p>html</p>
+
+    <p>#wrapper
+    #main
+    #side</p>
+  </li>
+  <li>
+    <p>sass</p>
+
+    <p>#wrapper
+    padding: 10px
+    background: #aaa</p>
+
+    <p>#main
+    float: left
+    width: 60%
+    height: 200px
+    background: #5ce</p>
+
+    <p>#side
+    float: right
+    width: 36%
+    height: 200px
+    background: #5ce</p>
+  </li>
+</ul>
+
+<p>これは wrapper の背景から main, side がはみ出している例。
+commpass でこう include すると</p>
+
+<pre><code>#wrapper
+  padding: 10px
+  background: #aaa
+  @include clearfix
+</code></pre>
+
+<p>こんな css になっている。</p>
+
+<pre><code>#wrapper
+  padding: 10px
+  background: #aaa
+  overflow: hidden
+  *zoom: 1
+</code></pre>
+
+<p>こういったものを良い感じに用意してくれている css フレームワークなのだった。
+なるべくマシなデザインで、素早く開発する夢を見ている。小さく一歩前進した。</p>
+
+<ul>
+  <li>2014/05/13 08:01:01</li>
+</ul>
+
+<p>ちょっと追記。こう、下に footer みたいなのを置けると、margin-topプロパティを自動的に浮動化されたボックスの高さまで調整するような振る舞いをするらしく、問題は起こらない。ということとかも知ったのであった。</p>
+
+<pre><code>#wrapper
+  #main
+  #side
+  .clear
+
+.clear
+  clear: both
+  height: 60px
+  background: #e58
+</code></pre>
+
+
+    </div>
+  </div>
+  <br>
+  <h6><a href="/2014/05/13/ClearFix.html">Published at May 13, 2014.</a></h6>
+  </article>
+  <hr>
+
+  
+    <p><a class="button" href="/page/5/">Next page</a></p>
+  
+
+      </div>
+      <!-- End Main Content -->
+
+      <!-- Sidebar -->
+      <aside class="large-3 columns">
+
+      <h4>Recent Entries</h4>
+      <ul>
+        
+          <li><a href="/2014/12/18/PtOnlineSchemaChange.html">pt-online-schema-change</a> <span>Dec 18</span></li>
+        
+          <li><a href="/2014/12/05/UrlEncodeWithPLUS.html">URL エンコードの + と %20 などの挙動でハマったこと</a> <span>Dec 05</span></li>
+        
+          <li><a href="/2014/11/25/Emmet.html">Emmet を導入してみた</a> <span>Nov 25</span></li>
+        
+          <li><a href="/2014/11/07/RackAcceptDefault.html">rack-accept-default から知ったこと</a> <span>Nov 07</span></li>
+        
+          <li><a href="/2014/10/27/RSpecMinimal.html">rspec の最小構成</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/27/MakeBookmarkletFaster.html">Make bookmarklet faster</a> <span>Oct 27</span></li>
+        
+          <li><a href="/2014/10/22/Rails4NonStupidDigestAssets.html">Rails4 の assets precompile に関する注意点と現時点での対応方法</a> <span>Oct 22</span></li>
+        
+          <li><a href="/2014/10/02/StopTail.html">tail -f を一時的に止める</a> <span>Oct 02</span></li>
+        
+          <li><a href="/2014/09/30/Book.html">技術書の選び方を相談されて考えたこと</a> <span>Sep 30</span></li>
+        
+          <li><a href="/2014/09/29/WhereIsMyCnf.html">where is my.cnf</a> <span>Sep 29</span></li>
+        
+      </ul>
+
+      <a class="twitter-timeline" href="https://twitter.com/284km" data-widget-id="458815336611999744">@284km からのツイート</a>
+
+      <h4>Categories</h4>
+      <ul>
+        
+          <li><a href="/tags/tool.html">tool</a> (3)</a></li>
+        
+          <li><a href="/tags/iterm.html">iterm</a> (1)</a></li>
+        
+          <li><a href="/tags/diary.html">diary</a> (20)</a></li>
+        
+          <li><a href="/tags/github.html">github</a> (1)</a></li>
+        
+          <li><a href="/tags/php.html">php</a> (1)</a></li>
+        
+          <li><a href="/tags/blog.html">blog</a> (3)</a></li>
+        
+          <li><a href="/tags/windows.html">windows</a> (5)</a></li>
+        
+          <li><a href="/tags/android.html">android</a> (4)</a></li>
+        
+          <li><a href="/tags/javascript.html">javascript</a> (6)</a></li>
+        
+          <li><a href="/tags/css.html">css</a> (3)</a></li>
+        
+          <li><a href="/tags/bestpractice.html">bestpractice</a> (3)</a></li>
+        
+          <li><a href="/tags/eclipse.html">eclipse</a> (1)</a></li>
+        
+          <li><a href="/tags/chrome.html">chrome</a> (3)</a></li>
+        
+          <li><a href="/tags/indexeddb.html">indexeddb</a> (1)</a></li>
+        
+          <li><a href="/tags/example.html">example</a> (1)</a></li>
+        
+          <li><a href="/tags/ruby.html">ruby</a> (6)</a></li>
+        
+          <li><a href="/tags/postgresql.html">postgresql</a> (1)</a></li>
+        
+          <li><a href="/tags/vps.html">vps</a> (2)</a></li>
+        
+          <li><a href="/tags/nginx.html">nginx</a> (1)</a></li>
+        
+          <li><a href="/tags/vim.html">vim</a> (2)</a></li>
+        
+          <li><a href="/tags/backbone.html">backbone</a> (1)</a></li>
+        
+          <li><a href="/tags/rails.html">rails</a> (6)</a></li>
+        
+          <li><a href="/tags/rails4.html">rails4</a> (1)</a></li>
+        
+          <li><a href="/tags/ubuntu.html">ubuntu</a> (6)</a></li>
+        
+          <li><a href="/tags/git.html">git</a> (3)</a></li>
+        
+          <li><a href="/tags/middleman.html">middleman</a> (1)</a></li>
+        
+          <li><a href="/tags/mysql.html">mysql</a> (4)</a></li>
+        
+          <li><a href="/tags/ibus.html">ibus</a> (1)</a></li>
+        
+          <li><a href="/tags/c.html">c</a> (2)</a></li>
+        
+          <li><a href="/tags/java.html">java</a> (4)</a></li>
+        
+          <li><a href="/tags/json.html">json</a> (1)</a></li>
+        
+          <li><a href="/tags/intellij.html">intellij</a> (1)</a></li>
+        
+          <li><a href="/tags/vagrant.html">vagrant</a> (4)</a></li>
+        
+          <li><a href="/tags/ie.html">ie</a> (2)</a></li>
+        
+          <li><a href="/tags/jenkins.html">jenkins</a> (1)</a></li>
+        
+          <li><a href="/tags/english.html">english</a> (2)</a></li>
+        
+          <li><a href="/tags/virtualbox.html">virtualbox</a> (1)</a></li>
+        
+          <li><a href="/tags/turbolinks.html">turbolinks</a> (1)</a></li>
+        
+          <li><a href="/tags/mruby.html">mruby</a> (1)</a></li>
+        
+          <li><a href="/tags/linux.html">linux</a> (1)</a></li>
+        
+          <li><a href="/tags/js.html">js</a> (1)</a></li>
+        
+          <li><a href="/tags/engineer.html">engineer</a> (1)</a></li>
+        
+          <li><a href="/tags/twitter.html">twitter</a> (2)</a></li>
+        
+          <li><a href="/tags/jquery.html">jquery</a> (1)</a></li>
+        
+          <li><a href="/tags/golang.html">golang</a> (1)</a></li>
+        
+          <li><a href="/tags/environment.html">environment</a> (1)</a></li>
+        
+          <li><a href="/tags/rspec.html">rspec</a> (1)</a></li>
+        
+          <li><a href="/tags/perl.html">perl</a> (2)</a></li>
+        
+          <li><a href="/tags/web.html">web</a> (1)</a></li>
+        
+          <li><a href="/tags/tmux.html">tmux</a> (1)</a></li>
+        
+          <li><a href="/tags/toeic.html">toeic</a> (1)</a></li>
+        
+          <li><a href="/tags/ios.html">ios</a> (5)</a></li>
+        
+          <li><a href="/tags/xcode.html">xcode</a> (1)</a></li>
+        
+          <li><a href="/tags/html.html">html</a> (1)</a></li>
+        
+          <li><a href="/tags/pt-pnline-schema-change.html">pt-pnline-schema-change</a> (1)</a></li>
+        
+          <li><a href="/tags/sh.html">sh</a> (1)</a></li>
+        
+          <li><a href="/tags/product.html">product</a> (1)</a></li>
+        
+          <li><a href="/tags/compass.html">compass</a> (1)</a></li>
+        
+          <li><a href="/tags/redis.html">redis</a> (1)</a></li>
+        
+      </ul>
+      <h4>By Year</h4>
+      <ul>
+        
+          <li><a href="/2014.html">2014</a> (73)</a></li>
+        
+          <li><a href="/2013.html">2013</a> (32)</a></li>
+        
+          <li><a href="/2012.html">2012</a> (2)</a></li>
+        
+      </ul>
+
+      <div class="panel">
+        <h5>Featured</h5>
+        <p> - The status of my iOS app is "Waiting For Review" now.</p>
+      </div>
+
+      <section class="coderwall" data-coderwall-username="284km" data-coderwall-orientation="horizontal"></section>
+
+      </aside>
+      <!-- End Sidebar -->
+
+    </div>
+    <!-- End Main Content and Sidebar -->
+
+    <!-- Footer -->
+    <footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>Kazuma Furuhashi @284km</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="http://zombieness.net:5000/chat" class="button">Chat</a></li>
+            <li><a href="#" class="button">Memo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation.min.js"></script>
+    <script src="http://coderwall.com/javascripts/jquery.coderwall.js">
+    <script>
+      $(document).foundation();
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </body>
+</html>

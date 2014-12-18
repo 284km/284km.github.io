@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Drafts</title>
+  <subtitle>as my diary</subtitle>
+  <id>http://284km.github.io/</id>
+  <link href="http://284km.github.io/"/>
+  <link href="http://284km.github.io/feed.xml" rel="self"/>
+  <updated>2014-12-18T06:02:00Z</updated>
+  <author>
+    <name>284km</name>
+  </author>
+  <entry>
+    <title>pt-online-schema-change</title>
+    <link rel="alternate" href="http://284km.github.io/2014/12/18/PtOnlineSchemaChange.html"/>
+    <id>http://284km.github.io/2014/12/18/PtOnlineSchemaChange.html</id>
+    <published>2014-12-18T06:02:00Z</published>
+    <updated>2014-12-18T06:21:18+00:00</updated>
+    <author>
+      <name>284km</name>
+    </author>
+    <content type="html">&lt;p&gt;mysql 5.5 以下でも、online でスキーマ変更とかを可能とするあれだ。&lt;/p&gt;
+
+&lt;p&gt;http://www.percona.com/downloads/percona-toolkit/2.2.12/tarball/percona-toolkit-2.2.12.tar.gz&lt;/p&gt;
+
+&lt;p&gt;tar ball を持ってきて解凍して、中にある pt-online-schema-change だけ持ってきて使った。&lt;/p&gt;
+
+&lt;p&gt;例えばこんな風に使う。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;dry-run&lt;/p&gt;
+
+    &lt;p&gt;./pt-online-schema-change h=localhost,u=username,D=databasename,t=tablename –alter "add index index_name(columnname)" –set-vars innodb_lock_wait_timeout=50 –dry-run&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;execute&lt;/p&gt;
+
+    &lt;p&gt;./pt-online-schema-change h=localhost,u=username,D=databasename,t=tablename –alter "add index index_name(columnname)" –set-vars innodb_lock_wait_timeout=50 –execute&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;replication している場合には –nocheck-replication-filters などつける。&lt;/p&gt;
+
+    &lt;p&gt;./pt-online-schema-change h=localhost,u=username,D=databasename,t=tablename –alter "add index index_name(columnname)" –set-vars innodb_lock_wait_timeout=50 –nocheck-replication-filters –execute&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>URL エンコードの + と %20 などの挙動でハマったこと</title>
+    <link rel="alternate" href="http://284km.github.io/2014/12/05/UrlEncodeWithPLUS.html"/>
+    <id>http://284km.github.io/2014/12/05/UrlEncodeWithPLUS.html</id>
+    <published>2014-12-05T03:43:00Z</published>
+    <updated>2014-12-18T06:21:18+00:00</updated>
+    <author>
+      <name>284km</name>
+    </author>
+    <content type="html">&lt;p&gt;api 叩いて、そのクエリパラメータとDBの値を突き合わせてどうのこうの、ということをしていて、
+あれー、一致するはずがなんかおかしいぞ。ということになっていた。&lt;/p&gt;
+
+&lt;p&gt;最近譲り受けてメンテすることになったコードでわからんので、コードを追っていく。&lt;/p&gt;
+
+&lt;p&gt;どうやらパラメータに "+" が混ざっていたことで起きていた。
+サーバ側で文字列を突き合わせているが、"+" が半角スペース扱いされてしまっている。&lt;/p&gt;
+
+&lt;p&gt;なるほど url encode のよくあるアレだ。
+とりあえず今すぐに、すぐさま動かすことが命題であったので、String.gsub(" ", "+") で難を逃れた。&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Emmet を導入してみた</title>
+    <link rel="alternate" href="http://284km.github.io/2014/11/25/Emmet.html"/>
+    <id>http://284km.github.io/2014/11/25/Emmet.html</id>
+    <published>2014-11-25T08:22:00Z</published>
+    <updated>2014-12-18T06:21:18+00:00</updated>
+    <author>
+      <name>284km</name>
+    </author>
+    <content type="html">&lt;p&gt;Emmet を導入してみた。vim に。
+大体今までは slim を好んで使ってきたけれど、
+rails と分離してフロントエンドを考える場合に悩むことが多かった。テンプレートエンジンで。&lt;/p&gt;
+
+&lt;p&gt;もともと haml だ slim だと使い始めたのは、素の html を書くのが面倒だったからだ。
+素の html が簡単に書けるのなら、問題ないはずだ。ちょっと使ってみた感じでは問題無さそう。&lt;/p&gt;
+
+&lt;p&gt;rails と分離するときはもう emmet で素の html を書けばいいかなと思っている。&lt;/p&gt;
+
+&lt;p&gt;slim の方が読みやすかったりするのかな? とか疑問はあるので
+暫く使って様子をみたい。&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>rack-accept-default から知ったこと</title>
+    <link rel="alternate" href="http://284km.github.io/2014/11/07/RackAcceptDefault.html"/>
+    <id>http://284km.github.io/2014/11/07/RackAcceptDefault.html</id>
+    <published>2014-11-07T08:47:00Z</published>
+    <updated>2014-12-18T06:21:18+00:00</updated>
+    <author>
+      <name>284km</name>
+    </author>
+    <content type="html">&lt;p&gt;Garage のコードを読み始めてまず目についたのが&lt;/p&gt;
+
+&lt;p&gt;require "rack-accept-default"&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/miyagawa/rack-accept-default"&gt;miyagawa/rack-accept-default&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これはなんだろうと思うと、&lt;/p&gt;
+
+&lt;p&gt;まあ README の内容なんだけれど、&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Rack::AcceptDefault is a tiny piece of middleware that sets default Accept: header when it isn't present, to work around Rails 3.x issues.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Rails default MIME negotiation (in ActionPack) handles requests without Accept: headers as invalid, and assume it wants the HTML view. This assumption is wrong per RFC 2616 HTTP/1.1 specification.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If no Accept header field is present, then it is assumed that the client accepts all media types
+Rack::AcceptDefault is a piece of Rack middleware that provides a convenient way to work around this problem, by setting the &lt;code&gt;*/*&lt;/code&gt; value to the Accept header when it is not present.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"&gt;RFC2616&lt;/a&gt; に、&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If no Accept header field is present, then it is assumed that the client accepts all media types&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Accept header が渡されない場合、all media types つまり &lt;code&gt;*/*&lt;/code&gt; とする。とある。&lt;/p&gt;
+
+&lt;p&gt;Rails では &lt;code&gt;*/*&lt;/code&gt; ではなくて html としている。&lt;/p&gt;
+
+&lt;p&gt;コードを見ると、Rails 3.x 限定というわけではなく、現在もそうだ。
+該当箇所はこの辺。&lt;/p&gt;
+
+&lt;p&gt;rails/rails/actionpack/lib/action_dispatch/http&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  def formats
+    @env["action_dispatch.request.formats"] ||= begin
+      params_readable = begin
+                          parameters[:format]
+                        rescue ActionController::BadRequest
+                          false
+                        end
+      if params_readable
+        Array(Mime[parameters[:format]])
+      elsif use_accept_header &amp;amp;&amp;amp; valid_accept_header
+        accepts
+      elsif xhr?
+        [Mime::JS]
+      else
+        [Mime::HTML]
+      end
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>rspec の最小構成</title>
+    <link rel="alternate" href="http://284km.github.io/2014/10/27/RSpecMinimal.html"/>
+    <id>http://284km.github.io/2014/10/27/RSpecMinimal.html</id>
+    <published>2014-10-27T06:09:00Z</published>
+    <updated>2014-12-18T06:21:18+00:00</updated>
+    <author>
+      <name>284km</name>
+    </author>
+    <content type="html">&lt;p&gt;ここにある。たまに失うのでメモしておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/284km/rspec-minimal"&gt;https://github.com/284km/rspec-minimal&lt;/a&gt;&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Make bookmarklet faster</title>
+    <link rel="alternate" href="http://284km.github.io/2014/10/27/MakeBookmarkletFaster.html"/>
+    <id>http://284km.github.io/2014/10/27/MakeBookmarkletFaster.html</id>
+    <published>2014-10-27T02:17:00Z</published>
+    <updated>2014-12-18T06:21:18+00:00</updated>
+    <author>
+      <name>284km</name>
+    </author>
+    <content type="html">&lt;p&gt;javascript を書いて、closure-compiler で compile して頭に javascript: を付けるのが一番簡単ぽい。&lt;/p&gt;
+
+&lt;p&gt;http://closure-compiler.appspot.com/home&lt;/p&gt;
+
+</content>
+  </entry>
+</feed>
